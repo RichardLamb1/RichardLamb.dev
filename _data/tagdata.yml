@@ -1,0 +1,26 @@
+# Support for colored tags
+# Follow the format below
+#   - name: "name"
+#     color: "#FFFFFF"
+# Can also use Bootstrap variables as colors, eg. color: "var(--bs-red)"
+
+- name: "raspberry pi"
+  color: "var(--bs-red)"
+
+- name: "jekyll"
+  color: "linear-gradient(#bd0000, #ffcc00)"
+
+- name: "html"
+  color: "var(--bs-orange)"
+
+- name: "css"
+  color: "var(--bs-blue)"
+
+- name: "js"
+  color: "var(--bs-yellow)"
+
+- name: "github"
+  color: "#222222"
+
+- name: "bootstrap"
+  color: "var(--bs-purple)"

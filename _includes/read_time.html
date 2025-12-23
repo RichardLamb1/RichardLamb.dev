@@ -1,0 +1,16 @@
+<!--
+Estimates the time a reader will take to read a document
+Credit: https://carlosbecker.com/posts/jekyll-reading-time-without-plugins/
+-->
+{% if page.url == "/" or page.title == "Blog" %}
+{% assign words = post.content | number_of_words %}
+{% else %}
+{% assign words = content | number_of_words %}
+{% endif %}
+<span class="reading-time" title="{{ words }} words at 180 WPM">
+    {% if words < 360 %}
+        1 min read
+    {% else %}
+        {{ words | divided_by:180 }} min read
+    {% endif %}
+</span>

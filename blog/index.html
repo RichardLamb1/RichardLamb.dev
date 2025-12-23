@@ -1,0 +1,107 @@
+---
+title: Blog
+layout: page
+description: Richard Lamb's blog
+---
+
+<div class="col-lg-12">
+    {% include pager.html %}
+    <div class="row">
+
+        <!-- Left Column -->
+        <div class="col-lg-9">
+
+            <!-- Posts -->
+            <div class="row">
+                {% for post in paginator.posts %}
+                <div class="col-lg-4">
+                    <div class="card mb-4" title="{{ post.title }}">
+                        <!-- Cover Image -->
+                        {% if post.image %}
+                        <img src="{{ post.image.src }}" alt="{{ post.image.alt }}" class="card-img-top" height="200px"
+                            style="object-fit: cover;" />
+                        {% else %}
+                        <!-- Show a placeholder if there is no cover image available -->
+                        <svg height="200px" class="card-img-top" role="img" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#55595c"></rect>
+                        </svg>
+                        {% endif %}
+                        <div class="card-body">
+                            <!-- Title -->
+                            <h5 class="card-title text-nowrap" style="overflow: hidden;" title="{{ post.title }}"><a href="{{ post.url }}" class="stretched-link">{{ post.title }}</a></h5>
+                            <!-- Author, Date, and Estimated Reading Time -->
+                            <p class="card-text">By
+                                {% if post.author %}
+                                <b>{{ post.author }}</b>
+                                {% else %}
+                                <b>Richard Lamb</b>
+                                &bull;
+                                <span>{% include read_time.html %}</span>
+                                {% endif %}
+                                <br>
+                                <span title="{{ post.date }}">{{ post.date | date: "%A, %B %d, %Y"}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- End Left Column -->
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-lg-3">
+
+            <!-- Latest Posts -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">Latest Posts</h2>
+                    <ul class="m-0">
+                        {% for post in site.posts limit:3 %}
+                        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">Tags</h2>
+                    <p class="m-0">
+                        {% assign _tags = site.tags | sort %}
+                        {% for t1 in _tags %}
+                        {% assign tag-color = "RGBA(var(--bs-secondary-rgb))" %}
+                        {% for t2 in site.data.tagdata %}
+                        {% if t1[0] == t2.name %}
+                        {% capture tag-color %}{{ t2.color }}{% endcapture %}
+                        {% endif %}
+                        {% endfor %}
+                        <a href="/blog/tag/{{ t1[0] | slugify }}"><span class="badge rounded-pill" style="background: {{ tag-color }}">{{ t1[0] }}</span></a>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Archives -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">Archives</h2>
+                    <ul class="m-0">
+                        {% for post in site.posts %}
+                        {% capture month %}{{ post.date | date: '%m%Y' }}{% endcapture %}
+                        {% capture nmonth %}{{ post.next.date | date: '%m%Y' }}{% endcapture %}
+                        {% if month != nmonth %}
+                        <li><a href="/blog/{{ post.date | date: '%Y/%m' }}">{{ post.date | date: '%B, %Y' }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- End Right Column -->
+        </div>
+    </div>
+</div>
+{% include pager.html %}

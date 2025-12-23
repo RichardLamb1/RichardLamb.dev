@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<head>
+    {% include head.html %}
+    <title>{{ page.title }} - {{ site.title }}</title>
+</head>
+
+<body>
+    <script src="/lib/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
+    {% include header.html %}
+    {{ content }}
+    {% include footer.html %}
+</body>

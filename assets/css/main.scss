@@ -1,0 +1,18 @@
+---
+---
+
+// Syntax highlighting
+@import "syntax";
+
+// Automatic light/dark mode
+@import "color_mode";
+
+// Proper blockquotes
+@import "blockquotes";
+
+// Blurred background header
+header {
+    --bs-bg-opacity: 0.6;
+    background-color: rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity)) !important;
+    backdrop-filter: blur(10px);
+}

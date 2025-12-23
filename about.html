@@ -1,0 +1,235 @@
+---
+title: About Me - Richard Lamb
+description: Richard Lamb is a Computer Engineering and Computer Science student at UW-Madison.
+layout: nocompress
+permalink: /about
+
+_bio-short: "Computer Engineering and Computer Science student at UW-Madison"
+_bio-long: >-
+    I am currently an undergraduate student studying Computer Engineering and Computer Science at the <a
+    href="https://www.wisc.edu/">University of Wisconsin-Madison</a> and an active member of the <a
+    href="https://delta.khk.org/">Delta Chapter</a> of <a href="https://www.khk.org/">Kappa Eta Kappa</a>, a co-ed
+    professional Electrical and Computer Engineering/Computer Science fraternity. I will be serving as assistant
+    treasurer next semester.
+_location: "Madison, WI, United States"
+---
+
+<head>
+    {% include head.html %}
+    <style>
+        #profile-picture-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 100%;
+            overflow: hidden;
+        }
+
+        #profile-picture {
+            object-fit: cover;
+            position: relative;
+            transform: scale(0.5);
+            top: -110px;
+            left: -75px;
+        }
+    </style>
+    <title>{{ page.title }}</title>
+</head>
+
+<body>
+    <script src="/lib/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
+    {% include header.html %}
+
+    <!-- Main Content-->
+    <main class="container my-md-4">
+        <div class="col-lg-12">
+            <div class="row">
+
+                <!-- Left Column -->
+                <div class="col-lg-3">
+
+                    <!-- Short Bio and Summary -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <div id="profile-picture-container">
+                                    <img id="profile-picture" src="assets/img/khk2025.jpg"
+                                        alt="Richard Lamb's profile picture" />
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <h1 class="mt-2">Richard Lamb</h1>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                {% for profile in site.social-media %}
+                                <a class="text-body mx-2 mb-2" href="{{ profile.url }}" aria-label="{{ profile.name }}"
+                                    title="{{ profile.name }}">
+                                    <i class="bi {{ profile.icon }}"></i>
+                                </a>
+                                {% endfor %}
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <p class="text-center">{{ page._bio-short }}</p>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                {% if page._location %}
+                                <h6><a href="https://www.google.com/maps/search/?api=1&query={{ page._location }}"
+                                        target="_blank" class="link-body-emphasis link-underline-opacity-0"><i
+                                            class="bi bi-geo-alt-fill"></i> {{ page._location }}</a></h6>
+                                {% endif %}
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <h6><a href="https://www.richardlamb.dev"
+                                        class="link-underline link-underline-opacity-0"><i class="bi bi-link-45deg"></i>
+                                        https://www.richardlamb.dev</a></h6>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Programming Languages -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Programming Languages</h4>
+                            <ul class="m-0">
+                                <li>Java</li>
+                                <li>C/C++</li>
+                                <li>Python</li>
+                                <li>Bash</li>
+                                <li>HTML/CSS/JS</li>
+                                <li>MATLAB</li>
+                                <li>Assembly</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Skills -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h2 class="card-title">Skills</h2>
+                            <ul class="m-0">
+                                <li>AutoCAD</li>
+                                <li>ArcGIS</li>
+                                <li>Microsoft Office</li>
+                                <li>Linux</li>
+                                <li>Raspberry Pi</li>
+                                <li>Arduino</li>
+                                <li>Verilog/VHDL</li>
+                                <li>QuestaSim</li>
+                                <li>LTSpice</li>
+                                <li>Oscilloscope</li>
+                                <li>Soldering</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- End Left Column -->
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-lg-9">
+
+                    <!-- Long Bio -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h1 class="card-title">About Me</h1>
+                            <p class="m-0">{{ page._bio-long }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h1 class="card-title">Education</h1>
+                            <div class="row my-3">
+                                <div class="col-md-2 align-content-center text-center">
+                                    <img src="/assets/img/education/uwmadison-resized.png" width="70%" />
+                                </div>
+                                <div class="col-md-10 align-content-center ps-0">
+                                    <h3>University of Wisconsin-Madison</h3>
+                                    <h6>Bachelor of Science in Computer Engineering - <em>Expected Spring 2027</em></h6>
+                                    <h6>Additional major in Computer Science</h6>
+                                    <a href="https://www.wisc.edu/" target="_blank">https://www.wisc.edu/</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievements -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h1 class="card-title">Achievements</h1>
+                            <div class="row my-3">
+                                <div class="col-md-2 align-content-center text-center">
+                                    <img src="/assets/img/scouts.png" width="70%" />
+                                </div>
+                                <div class="col-md-10 align-content-center ps-0">
+                                    <h3>Eagle Scout - <em>Earned 2020</em></h3>
+                                    <h6>Scouting America</h6>
+                                    <a href="https://www.scouting.org/" target="_blank">https://www.scouting.org/</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leadership -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h1 class="card-title">Leadership</h1>
+                            <div class="row my-3">
+                                <div class="col-md-2 align-content-center text-center">
+                                    <img src="/assets/img/khk/coatOfArms.png" width="70%" />
+                                </div>
+                                <div class="col-md-10 align-content-center ps-0">
+                                    <h3>Assistant Treasurer - <em>Spring 2026</em></h3>
+                                    <h6>Delta Chapter - Kappa Eta Kappa - Professional Engineering Fraternity</h6>
+                                    <a href="https://delta.khk.org/" target="_blank">https://delta.khk.org/</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work Experience -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h1 class="card-title">Work Experience</h1>
+                            <div class="row my-3">
+                                <div class="col-md-2 align-content-center text-center">
+                                    <img src="/assets/img/work_exp/germantown.jpeg" width="70%" />
+                                </div>
+                                <div class="col-md-10 align-content-center ps-0">
+                                    <h3>Village of Germantown, WI</h3>
+                                    <h6>Engineering Intern - <em>Summers 2024 & 2025</em></h6>
+                                    <a href="https://germantownwi.gov/" target="_blank">https://germantownwi.gov/</a>
+                                </div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col-md-2 align-content-center text-center">
+                                    <img src="/assets/img/work_exp/mequon.png" width="70%" />
+                                </div>
+                                <div class="col-md-10 align-content-center ps-0">
+                                    <h3>City of Mequon, WI</h3>
+                                    <h6>Engineering Intern - <em>Summers 2022 & 2023</em></h6>
+                                    <a href="https://cityofmequonwi.gov/" target="_blank">https://cityofmequonwi.gov/</a>
+                                </div>
+                            </div>
+                            <div class="row my-3">
+                                <div class="col-md-2 align-content-center text-center">
+                                    <img src="/assets/img/scouts.png" width="70%" />
+                                </div>
+                                <div class="col-md-10 align-content-center ps-0">
+                                    <h3>Gardner Dam Scout Camp - White Lake, WI</h3>
+                                    <h6>Youth Counselor - <em>Summer 2021</em></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- End Right Column -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- End Main Content-->
+
+    {% include footer.html %}
+</body>

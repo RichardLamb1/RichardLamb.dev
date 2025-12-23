@@ -1,0 +1,68 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Description, Title, Author -->
+{% if page.description %}
+<meta name="description" content="{{ page.description }}" />
+{% else if page.summary %}
+<meta name="description" content="{{ page.summary }}" />
+{% endif %}
+{% if page.author %}
+<meta name="author" content="{{ page.author }}" />
+{% else %}
+<meta name="author" content="Richard Lamb" />
+{% endif %}
+
+<!-- Icon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/icon256x256.png" />
+<link rel="icon" href="/icon128x128.png" />
+<link rel="icon" href="/icon64x64.png" />
+<link rel="icon" href="/icon48x48.png" />
+<link rel="icon" href="/icon32x32.png" />
+<link rel="icon" href="/icon16x16.png" />
+<link rel="apple-touch-icon" sizes="167x167" href="/apple-touch-icon-167x167.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+
+<!-- OpenGraph content https://ogp.me/ -->
+<meta property="og:site_name" content="{{ site.title }}" />
+<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+{% if page.image %}
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image.src }}" />
+<meta property="og:image:alt" content="{{ page.image.alt }}" />
+{% endif %}
+{% if page.description %}
+<meta property="og:description" content="{{ page.description }}" />
+{% else if page.summary %}
+<meta property="og:description" content="{{ page.summary }}" />
+{% endif %}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="{{ page.title }}" />
+<meta property="twitter:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+{% if page.image %}
+<meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image.src }}" />
+<meta property="twitter:image:alt" content="{{ page.image.alt }}" />
+{% endif %}
+{% if page.description %}
+<meta property="twitter:description" content="{{ page.description }}" />
+{% else if page.summary %}
+<meta property="twitter:description" content="{{ page.summary }}" />
+{% endif %}
+
+<!-- Feed -->
+{% feed_meta %}
+
+<!-- Style -->
+<link href="/lib/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/lib/bootstrap-icons-1.13.1/bootstrap-icons.min.css" rel="stylesheet" />
+<link href="/assets/css/main.css" rel="stylesheet" />
+<style>
+    /* Fix the navbar toggler icon not being visible on mobile */
+    .navbar-toggler-icon {
+        --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28127, 127, 127, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+</style>

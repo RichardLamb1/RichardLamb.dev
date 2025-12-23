@@ -1,0 +1,106 @@
+---
+title: Search
+layout: page-nocompress
+permalink: /search
+---
+
+<script src="/lib/lunr.js/2.1.5/lunr.js"></script>
+
+<script>
+    {% assign counter = 0 %}
+    var documents = [{% for page in site.pages %}{% if page.url contains '.xml' or page.url contains 'assets' or page.url contains '404.html' %} {% else %} {
+        "id": {{ counter }},
+        "url": "{{ site.url }}{{ page.url }}",
+            "title": "{{ page.title }}",
+                "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
+    }, {% endif %} {% endfor %} {% for page in site.without - plugin %} {
+        "id": {{ counter }},
+        "url": "{{ site.url }}{{ page.url }}",
+            "title": "{{ page.title }}",
+                "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
+    }, {% endfor %} {% for page in site.posts %} {
+        "id": {{ counter }},
+        "url": "{{ site.url }}{{ page.url }}",
+            "title": "{{ page.title }}",
+                "body": "{{ page.date | date: " %b %e, %Y" }} — {{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
+    } {% if forloop.last %} {% else %}, {% endif %} {% endfor %}];
+
+    var idx = lunr(function () {
+        this.ref('id')
+        this.field('title')
+        this.field('body')
+
+        documents.forEach(function (doc) {
+            this.add(doc)
+        }, this)
+    });
+    function lunr_search(term) {
+        document.getElementById('lunrsearchresults').innerHTML = '<ul class="list-unstyled lunr-results-list"></ul>';
+        if (term) {
+            document.getElementById('lunrsearchresults').innerHTML = "<p>Search results for '" + term + "'</p>" + document.getElementById('lunrsearchresults').innerHTML;
+            // put results on the screen.
+            var results = idx.search(term);
+            if (results.length > 0) {
+                // console.log(idx.search(term));
+                // if results
+                for (var i = 0; i < results.length; i++) {
+                    // more statements
+                    var ref = results[i]['ref'];
+                    var url = documents[ref]['url'];
+                    var title = documents[ref]['title'];
+                    var body = documents[ref]['body'].substring(0, 160) + '...';
+                    document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'><h4 class='title m-0'>" + title + "</h4></a><span class='body'>" + body + "</span><br /><span class='url'>" + url + "</span></li><br />";
+                }
+            } else {
+                document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = "<li class='lunrsearchresult'>No results found...</li>";
+            }
+        }
+        return false;
+    }
+</script>
+
+<script>
+    function autoSearch() {
+        // Performs a search automatically if the 'q' parameter is specified in the URL
+        let search_textbox = document.getElementById("lunr-txt");
+        let params = new URLSearchParams(document.location.search);
+        let query = params.get("q");
+        search_textbox.focus(); // focus the textbox so the user doesn't have to manually click it
+        if (query != null) {
+            search_textbox.setRangeText(query);
+            return lunr_search(document.getElementById('lunr-txt').value);
+        }
+    }
+    document.addEventListener("DOMContentLoaded", autoSearch);
+</script>
+
+<h1>Search</h1>
+
+<div id="lunrsearch" class="mb-3">
+    <form class="lunrform" id="lunrform" action="/search">
+        <div class="lunrinput row g-2">
+            <div class="col">
+                <span id="lunr-txt-container"><input type="search" class="form-control" id="lunr-txt" name="q"
+                        maxlength="255" value="" placeholder="Search" aria-label="Search" enterkeyhint="search"
+                        spellcheck="false" /></span>
+            </div>
+            <div class="col-auto">
+                <span id="lunr-btn-container"><button type="submit" class="btn btn-outline-success"
+                        id="lunr-btn">Search</button></span>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="lunrsearchresults" class="mb-3">
+    <p>
+        Search tips:</p>
+    <ul class="list-unstyled lunr-results-list">
+        <ul>
+            <li>Try searching for specific keywords instead of typing a question. This isn't Google (or ChatGPT for that
+                matter). I'm a poor college student and can't afford anything nicer :(</li>
+            <li>Try synonyms if you can't find what your looking for</li>
+            <li>You can also go to Google, type in your query there, then type in site:{{ site.url | remove: "http://" | remove: "https://" }}
+                after it</li>
+        </ul>
+    </ul>
+</div>

@@ -1,0 +1,15 @@
+---
+layout: nocompress
+---
+
+<head>
+    {% include head.html %}
+    <title>{{ page.title }} - {{ site.title }}</title>
+</head>
+
+<body>
+    <script src="/lib/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
+    {% include header.html %}
+    <main class="container my-md-4">{{ content }}</main>
+    {% include footer.html %}
+</body>

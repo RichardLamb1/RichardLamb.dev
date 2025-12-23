@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<head>
+    {% include head.html %}
+    {% if page.type == "month" %}
+    <title>Posts From {{ page.date | date: '%B, %Y' }} - {{ site.title }}</title>
+    {% else if page.type == "tag" %}
+    <title>Posts Tagged "{{ page.title }}" - {{ site.title }}</title>
+    {% endif %}
+</head>
+
+<body>
+    <script src="/lib/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
+    {% include header.html %}
+    <main class="container my-md-4">
+        <!-- Title -->
+        {% if page.type == "month" %}
+        <h1>Posts From {{ page.date | date: '%B, %Y' }}</h1>
+        {% else if page.type == "tag" %}
+        <h1>Posts Tagged "{{ page.title }}"</h1>
+        {% endif %}
+
+        <!-- Posts -->
+        {% for post in page.posts %}
+        <div class="row mb-4">
+            <div class="col">
+                <h6 class="mb-1">
+                    <!-- Title and Summary -->
+                    <a href="{{ post.url }}"><strong>{{ post.title }}</strong></a>
+                    <!-- Colored Tags -->
+                    {% for t1 in post.tags %}
+                    {% assign tag-color = "RGBA(var(--bs-secondary-rgb))" %}
+                    {% for t2 in site.data.tagdata %}
+                    {% if t1 == t2.name %}
+                    {% capture tag-color %}{{ t2.color }}{% endcapture %}
+                    {% endif %}
+                    {% endfor %}
+                    <a href="/blog/tag/{{ t1 | slugify }}"><span class="badge rounded-pill"
+                            style="background: {{ tag-color }}">{{ t1 }}</span></a>
+                    {% endfor %}
+                </h6>
+                {% if post.summary %}
+                <p class="small mb-1">{{ post.summary }}</p>
+                {% endif %}
+                <!-- Author, Date, and Estimated Reading Time -->
+                <p class="small m-0">
+                    By
+                    {% if post.author %}
+                    <b>{{ post.author }}</b>
+                    {% else %}
+                    <b>Richard Lamb</b>
+                    {% endif %}
+                    &bull;
+                    <span title="{{ post.date }}"><b>{{ post.date | date: "%A, %B %d, %Y"}}</b></span>
+                </p>
+            </div>
+            <div class="col col-auto align-content-center read-button">
+                <a href="{{ post.url }}" class="btn btn-outline-secondary" role="button">Read</a>
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+    {% include footer.html %}
+</body>

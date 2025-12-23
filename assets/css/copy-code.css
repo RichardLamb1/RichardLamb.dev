@@ -1,0 +1,7 @@
+.copy-code-btn {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    inset: 3px 5px auto auto;
+    cursor: pointer;
+}
