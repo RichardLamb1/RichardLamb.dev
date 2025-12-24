@@ -8,7 +8,7 @@
   color: "var(--bs-red)"
 
 - name: "jekyll"
-  color: "linear-gradient(#bd0000, #ffcc00)"
+  color: "linear-gradient(#ffcc00, #bd0000)"
 
 - name: "html"
   color: "var(--bs-orange)"
