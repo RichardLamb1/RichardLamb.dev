@@ -1,0 +1,77 @@
+---
+title: Contact
+description: Contact Richard Lamb, Computer Engineering and Computer Science student at UW-Madison.
+layout: page
+permalink: /contact
+---
+
+<h1>Contact Me</h1>
+<p>
+    Please use the form below to contact me. I usually respond within a few days to a week.
+</p>
+<blockquote class="warning">
+    <b>Note:</b> If you have my email address, please email me directly instead of filling out this form.
+</blockquote>
+
+<form>
+    <div class="mb-3">
+        <label for="userName" class="form-label">Name <span style="color: red;">*</span></label>
+        <input type="text" class="form-control" id="userName" placeholder="Johnny Appleseed" required />
+    </div>
+    <div class="mb-3">
+        <label for="userEmail" class="form-label">Email address <span style="color: red;">*</span></label>
+        <input type="email" class="form-control" id="userEmail" placeholder="jappleseed@example.com" required />
+    </div>
+    <div class="mb-3">
+        <label for="userMessage" class="form-label">Message <span style="color: red;">*</span></label>
+        <textarea class="form-control" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+            id="userMessage" style="height: 200px" required></textarea>
+    </div>
+    <!-- Attachment Support (comment out if unsupported by backend) -->
+    <!--
+    <div>
+        <label for="userAttachments" class="form-label">Attachments</label>
+        <div class="mb-3" id="userAttachments">
+            <div class="row mb-3 g-2">
+                <div class="col">
+                    <input type="file" class="form-control" />
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-danger"><i class="bi bi-dash"></i> Remove this file</button>
+                </div>
+            </div>
+            <div class="row mb-3 g-2">
+                <div class="col">
+                    <input type="file" class="form-control" />
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-danger"><i class="bi bi-dash"></i> Remove this file</button>
+                </div>
+            </div>
+            <button class="btn btn-outline-secondary"><i class="bi bi-plus-lg"></i> Add additional file</button>
+        </div>
+    </div>
+    -->
+    <!-- End Attachment Support -->
+    <!-- Place the captcha here -->
+    <!--
+    Backends:
+    https://formbold.com/
+    - Freemium
+    - Free tier does what I need it to do, except attachments
+      - 100 submissions/mo
+      - ReCaptcha integration
+      - Up to 2 target emails
+      - No attachments
+    https://web3forms.com/
+    - Freemium
+    - Free tier does what I need it to do, except attachments
+      - 250 submissions/mo
+      - ReCaptcha integration
+      - Up to 2 target emails
+      - No attachments
+    -->
+    <div class="mt-4 mb-3">
+        <input type="submit" class="btn btn-primary btn-lg" value="Send" />
+    </div>
+</form>
