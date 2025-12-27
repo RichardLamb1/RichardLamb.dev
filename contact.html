@@ -1,11 +1,94 @@
 ---
 title: Contact
-description: Contact Richard Lamb, Computer Engineering and Computer Science student at UW-Madison.
 layout: page
 permalink: /contact
 ---
 
 <h1>Contact Me</h1>
-<blockquote class="warning">
-    <b>This functionality is not quite working yet.</b> Please check back later.
-</blockquote>
+<p>
+    Please use the form below to contact me. I usually respond within a few days to a week.
+</p>
+<noscript>
+    <blockquote class="danger">
+        <h4>JavaScript Required</h4>
+        <p>JavaScript is required to use this functionality. Please enable JavaScript in your browser. <a
+                href="https://kb.wisc.edu/2503" target="_blank">Instructions</a></p>
+    </blockquote>
+</noscript>
+
+<form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+    <!-- Access Key -->
+    <input type="hidden" name="access_key" value="1fc2f247-5ef5-40d3-8e1b-92918c7b6800">
+    <!-- Name -->
+    <div class="mb-3">
+        <label for="userName" class="form-label">Name <span style="color: red;">*</span></label>
+        <input type="text" name="name" class="form-control" id="userName" placeholder="Johnny Appleseed" required />
+    </div>
+    <!-- Email -->
+    <div class="mb-3">
+        <label for="userEmail" class="form-label">Email address <span style="color: red;">*</span></label>
+        <input type="email" name="email" class="form-control" id="userEmail" placeholder="jappleseed@example.com" required />
+    </div>
+    <!-- Message Body -->
+    <div class="mb-3">
+        <label for="userMessage" class="form-label">Message <span style="color: red;">*</span></label>
+        <textarea name="message" class="form-control" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+            id="userMessage" style="height: 200px" required></textarea>
+    </div>
+    <!-- Attachment Support (comment out if unsupported by backend) -->
+    <!--
+    <div>
+        <label for="userAttachments" class="form-label">Attachments</label>
+        <div class="mb-3" id="userAttachments">
+            <div class="row mb-3 g-2">
+                <div class="col">
+                    <input type="file" class="form-control" />
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-danger"><i class="bi bi-dash"></i> Remove this file</button>
+                </div>
+            </div>
+            <div class="row mb-3 g-2">
+                <div class="col">
+                    <input type="file" class="form-control" />
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-danger"><i class="bi bi-dash"></i> Remove this file</button>
+                </div>
+            </div>
+            <button class="btn btn-outline-secondary"><i class="bi bi-plus-lg"></i> Add additional file</button>
+        </div>
+    </div>
+    -->
+    <!-- End Attachment Support -->
+    <!-- To Prevent Spam -->
+    <input type="checkbox" name="botcheck" id="" style="display: none;">
+    <!-- Redirect -->
+    <input type="hidden" name="redirect" value="https://richardlamb.dev/contact/thanks">
+    <!-- Captcha -->
+    <div class="h-captcha" data-captcha="true"></div>
+    <!-- Submit -->
+    <div id="noCaptcha"></div>
+    <div class="mt-4 mb-3">
+        <input type="submit" class="btn btn-primary btn-lg" value="Send" />
+    </div>
+</form>
+<!-- Captcha -->
+<script src="https://web3forms.com/client/script.js" async defer></script>
+<script>
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', function(e) {
+
+    const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+
+    if (!hCaptcha) {
+        e.preventDefault();
+        let bq = document.createElement('blockquote');
+        bq.className = 'danger';
+        bq.innerHTML = 'Please fill out the captcha to submit';
+        document.getElementById('noCaptcha').append(bq);
+        return;
+    }
+});
+</script>
