@@ -4,8 +4,8 @@
 <!-- Description, Title, Author -->
 {% if page.description %}
 <meta name="description" content="{{ page.description }}" />
-{% else if page.summary %}
-<meta name="description" content="{{ page.summary }}" />
+{% else %}
+<meta name="description" content="{{ site.description }}" />
 {% endif %}
 {% if page.author %}
 <meta name="author" content="{{ page.author }}" />
@@ -35,8 +35,8 @@
 {% endif %}
 {% if page.description %}
 <meta property="og:description" content="{{ page.description }}" />
-{% else if page.summary %}
-<meta property="og:description" content="{{ page.summary }}" />
+{% else %}
+<meta name="og:description" content="{{ site.description }}" />
 {% endif %}
 
 <!-- Twitter -->
@@ -49,8 +49,8 @@
 {% endif %}
 {% if page.description %}
 <meta property="twitter:description" content="{{ page.description }}" />
-{% else if page.summary %}
-<meta property="twitter:description" content="{{ page.summary }}" />
+{% else %}
+<meta name="twitter:description" content="{{ site.description }}" />
 {% endif %}
 
 <!-- Feed -->

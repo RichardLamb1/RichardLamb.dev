@@ -2,6 +2,7 @@
 layout: post
 title:  "Hello, World!"
 summary: "Welcome to my new personal website and blog!"
+description: "Welcome to my new personal website and blog!"
 comments: true
 date:   2025-12-23 14:00:00 -0600
 tags: ["website", "web", "jekyll", "github", "github pages", "bootstrap", "html", "css", "js"]
