@@ -1,3 +1,6 @@
+// Allows a user to easily copy code from a codeblock
+// Author: Richard Lamb
+
 // Add a copy button to each code block
 document.querySelectorAll('pre > code').forEach(el => {
     el.parentNode.className = 'position-relative';
@@ -7,7 +10,7 @@ document.querySelectorAll('pre > code').forEach(el => {
     anchor.title = "Copy code";
     const icon = document.createElement('i');
     icon.className = 'bi bi-copy';
-    el.parentNode.append(anchor);
+    el.parentNode.prepend(anchor);
     anchor.append(icon);
 });
 
@@ -23,7 +26,7 @@ function copyCode(el) {
     // So let's set a good example here and remove that whitespace at the end.
     navigator.clipboard.writeText(text.trimEnd()).then(() => copyCodeFeedback(el)).catch(err => {
         console.error("Unable to copy code: ", err);
-        alert("An error occured while trying to copy the code. Please copy it manually.");
+        alert("An error occurred while trying to copy the code. Please copy it manually.");
     })
 }
 

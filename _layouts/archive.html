@@ -9,6 +9,16 @@ layout: default
     {% else if page.type == "tag" %}
     <title>Posts Tagged "{{ page.title }}" - {{ site.title }}</title>
     {% endif %}
+    <style>
+        @media (max-width: 768px) {
+            .read-button {
+                /* Hide the read buttons on phones and small tablets */
+                width: 100% !important;
+                visibility: hidden !important;
+                height: 0px !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -46,14 +56,13 @@ layout: default
                 {% endif %}
                 <!-- Author, Date, and Estimated Reading Time -->
                 <p class="small m-0">
-                    By
                     {% if post.author %}
-                    <b>{{ post.author }}</b>
+                    {{ post.author }}
                     {% else %}
-                    <b>Richard Lamb</b>
+                    Richard Lamb
                     {% endif %}
                     &bull;
-                    <span title="{{ post.date }}"><b>{{ post.date | date: "%A, %B %d, %Y"}}</b></span>
+                    <span title="{{ post.date }}">{{ post.date | date: "%A, %B %d, %Y"}}</span>
                 </p>
             </div>
             <div class="col col-auto align-content-center read-button">

@@ -16,6 +16,7 @@ This project makes use of the work of the third-parties listed below. You are fr
 - [Jekyll Compress HTML](http://jch.penibelst.de/)
 - [Bootstrap](https://getbootstrap.com/)
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
+- [Font Awesome](https://fontawesome.com/)
 - [Animate on Scroll (AOS)](https://github.com/michalsnik/aos)
 - [Lunr Search](https://lunrjs.com/)
 - [Giscus](https://giscus.app/)

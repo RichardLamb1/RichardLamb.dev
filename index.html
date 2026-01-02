@@ -51,9 +51,9 @@ image:
             left: -50px;
         }
 
-        .feature-icon {
-            width: 4rem;
-            height: 4rem;
+        .feature-icon-small {
+            width: 3rem;
+            height: 3rem;
             border-radius: .75rem;
         }
 
@@ -76,7 +76,9 @@ image:
             }
         }
     </style>
+    <!--
     <link rel="stylesheet" href="/lib/aos/aos.css" />
+    -->
     <title>{{ page.title }}</title>
 </head>
 
@@ -104,11 +106,12 @@ image:
                                 <h1 id="hero-name">Richard Lamb</h1>
                                 <p id="hero-description">Computer Engineering and Computer Science student at the <a
                                         href="https://www.wisc.edu" target="_blank">
-                                        University of Wisconsin-Madison
+                                        University of Wisconsin
                                     </a></p>
                                 <p>
-                                    <a class="btn btn-secondary resizable-buttons" href="/about" data-aos="fade-up">More
-                                        about me</a>
+                                    <a class="btn btn-secondary resizable-buttons" href="#about-me" data-aos="fade-up">
+                                        More about me
+                                    </a>
                                     <a class="btn btn-primary resizable-buttons" href="/contact" data-aos="fade-up"
                                         data-aos-delay="50">Get in touch</a>
                                 </p>
@@ -121,150 +124,183 @@ image:
     </div>
     <!-- End Hero Image -->
 
-    <!-- Begin Highlights -->
-    <div class="container pt-5">
-        <h2 class="pb-2 border-bottom">Highlights</h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-            <div class="feature col" data-aos="fade-up">
-                <div
-                    class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <svg class="bi" version="1.1" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="1em"
-                        height="1em" viewBox="-0.864 -0.333 350 359" xml:space="preserve" aria-hidden="true">
-                        <path style="fill: currentColor" d="M297.69,147.804c-47.642-5.459-97.763,27.791-107.192,94.289c-0.329,2.318-0.605,4.685-0.824,7.076h-2.81
-        c4.056-45.102,22.727-76.399,33.905-97.214c14.49-26.98,2.729-53.559-2.997-65.452C211.276,73.013,181.848,18.486,174.354,0
-        c-7.494,18.486-36.702,73.013-43.198,86.503c-5.728,11.893-17.488,38.472-2.998,65.452c11.103,20.673,29.87,52.316,34.226,97.214
-        h-3.208c-0.219-2.392-0.495-4.758-0.824-7.076c-9.43-66.499-59.551-99.748-107.192-94.289
-        c-53.284,6.105-81.882,90.319,0.496,110.666c-13.399-24.813,7.443-69.477,55.583-44.167c15.656,8.232,26.561,21.383,31.072,34.866
-        h-8.065c-7.608,0-13.776,4.469-13.776,9.983c0,5.514,6.168,9.983,13.776,9.983h9.817c-0.803,4.348-2.456,8.464-5.034,12.162
-        c-11.416,16.377-49.649,7.444-28.31-28.286c-36.065-4.747-45.649,29.279-35.228,47.641c11.453,23.411,61.479,30.428,80.41-2.978
-        c4.54-8.012,6.819-18.047,7.555-28.539h3.864c-0.033,7.932-0.53,16.224-1.59,24.887c-12.647,8.146-7.717,25.725-23.735,36.234
-        c10.062,0.265,18.271-1.708,20.92-5.415c0,10.75,9.617,19.812,15.886,32.858c5.824-13.119,15.208-24.094,15.208-32.858
-        c2.648,3.707,10.857,5.68,20.92,5.415c-14.687-9.01-8.898-25.516-23.261-37.306c-1.015-8.293-1.508-16.22-1.589-23.815h3.312
-        c0.735,10.492,3.016,20.527,7.555,28.539c18.931,33.405,68.957,26.389,80.41,2.978c10.422-18.361,0.838-52.388-35.228-47.641
-        c21.34,35.73-16.894,44.663-28.31,28.286c-2.577-3.698-4.23-7.814-5.033-12.162h10.572c7.608,0,13.776-4.47,13.776-9.983
-        c0-5.515-6.168-9.983-13.776-9.983h-8.821c4.512-13.483,15.416-26.634,31.072-34.866c48.14-25.31,68.982,19.354,55.583,44.167
-        C379.573,238.124,350.974,153.91,297.69,147.804z" />
-                    </svg>
-                </div>
-                <h3 class="fs-2 text-body-emphasis">Eagle Scout</h3>
-                <p>
-                    In 2020, during the thick of the Coronavirus pandemic, I brought together members of my community to
-                    successfully carry out my Eagle Scout project.
-                </p>
-                <!-- <a href="#" class="icon-link icon-link-hover text-decoration-none">
-                    See my project in action
-                    <i class="d-flex align-items-center bi bi-chevron-right"></i>
-                </a> -->
-            </div>
-            <div class="feature col" data-aos="fade-up" data-aos-delay="50">
-                <div
-                    class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <i class="bi bi-cpu" width="1em" height="1em" aria-hidden="true"></i>
-                </div>
-                <h3 class="fs-2 text-body-emphasis">Technically Sound</h3>
-                <p>
-                    As a double major in Computer Engineering and Computer Science, I've worked extensively with
-                    technologies from Verilog circuitry design to HTML, CSS, and JS frontend development.
-                </p>
-                <a href="/blog/2025/12/23/hello-world.html" class="icon-link icon-link-hover text-decoration-none">
-                    Read: How I Built My Website
-                    <i class="d-flex align-items-center bi bi-chevron-right"></i>
-                </a>
-            </div>
-            <div class="feature col" data-aos="fade-up" data-aos-delay="100">
-                <div
-                    class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <i class="bi bi-mortarboard-fill" width="1em" height="1em" aria-hidden="true"></i>
-                </div>
-                <h3 class="fs-2 text-body-emphasis">Highly Experienced</h3>
-                <p>
-                    I've interned in municipal government since high school learning to work efficiently with others,
-                    both in the office and in the field, while helping the community continue to grow.
-                </p>
-                <a href="/assets/pdf/resume-public.pdf" target="_blank" class="icon-link icon-link-hover text-decoration-none">
-                    View my resume
-                    <i class="d-flex align-items-center bi bi-chevron-right"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- End Highlights -->
-
     <!-- Begin Recent Blog Posts -->
     <div class="container py-5">
         <h2 class="pb-2 border-bottom">Latest Posts</h2>
-
+    
         <!-- Each Post -->
-        {% for post in site.posts limit:5 %}
-        <div class="row mb-4" data-aos="fade-up" data-aos-offset="240">
-            <div class="col">
-                <h6 class="mb-1">
-                    <!-- Title and Summary -->
-                    <a href="{{ post.url }}"><strong>{{ post.title }}</strong></a>
-                    <!-- Colored Tags -->
-                    {% for t1 in post.tags %}
-                    {% assign tag-color = "RGBA(var(--bs-secondary-rgb))" %}
-                    {% for t2 in site.data.tagdata %}
-                    {% if t1 == t2.name %}
-                    {% capture tag-color %}{{ t2.color }}{% endcapture %}
-                    {% endif %}
-                    {% endfor %}
-                    <a href="/blog/tag/{{ t1 | slugify }}"><span class="badge rounded-pill" style="background: {{ tag-color }}">{{ t1 }}</span></a>
-                    {% endfor %}
-                </h6>
-                {% if post.summary %}
-                <p class="small mb-1">{{ post.summary }}</p>
-                {% endif %}
-                <!-- Author, Date, and Estimated Reading Time -->
-                <p class="small m-0">
-                    By
-                    {% if post.author %}
-                    <b>{{ post.author }}</b>
+        <div class="row">
+            {% for post in site.posts limit:4 %}
+            <div class="col-lg-3">
+                <div class="card mb-4" title="{{ post.title }}">
+                    <!-- Cover Image -->
+                    {% if post.image %}
+                    <img src="{{ post.image.src }}" alt="{{ post.image.alt }}" class="card-img-top" height="200px"
+                        style="object-fit: cover;" />
                     {% else %}
-                    <b>Richard Lamb</b>
+                    <!-- Show a placeholder if there is no cover image available -->
+                    <svg height="200px" class="card-img-top" role="img" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="#55595c"></rect>
+                    </svg>
                     {% endif %}
-                    &bull;
-                    <span title="{{ post.date }}"><b>{{ post.date | date: "%A, %B %d, %Y"}}</b></span>
-                    &bull;
-                    <span>{% include read_time.html %}</span>
-                </p>
+                    <div class="card-body">
+                        <!-- Title -->
+                        <h5 class="card-title text-nowrap" style="overflow: hidden;" title="{{ post.title }}"><a
+                                href="{{ post.url }}" class="stretched-link">{{ post.title }}</a></h5>
+                        <!-- Author, Date, and Estimated Reading Time -->
+                        <p class="card-text">By
+                            {% if post.author %}
+                            <b>{{ post.author }}</b>
+                            {% else %}
+                            <b>Richard Lamb</b>
+                            &bull;
+                            <span>{% include read_time.html %}</span>
+                            {% endif %}
+                            <br>
+                            <span title="{{ post.date }}">{{ post.date | date: "%A, %B %d, %Y"}}</span>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="col col-auto align-content-center read-button">
-                <a href="{{ post.url }}" class="btn btn-outline-secondary" role="button">Read</a>
-            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-
-        <!-- More Blog Posts -->
+    
+        <!-- Link to Blog -->
         <a href="/blog" class="d-flex align-items-center icon-link icon-link-hover text-decoration-none">
-            More blog posts
+            Read my blog
             <i class="d-flex align-items-center bi bi-chevron-right"></i>
         </a>
     </div>
     <!-- End Recent Blog Posts -->
-
-    <!-- Begin Call to Action Jumbotron -->
-    <div class="p-5 mb-4 bg-body-tertiary">
-        <div class="container text-center py-5">
-            <h1 class="display-5 fw-bold">Interested in getting to know me?</h1>
-            <p class="col-md-8 offset-md-2 fs-4">
-                Don't be shy! Reach out! While you're at it, you can also check out my <a
-                    href="https://www.linkedin.com/in/richard-lamb-137698386/" target="_blank">LinkedIn</a>,
-                <a href="https://wisc.joinhandshake.com/profiles/richardlamb" target="_blank">Handshake</a> and <a
-                    href="https://github.com/RichardLamb1" target="_blank">GitHub</a> profiles.
-            </p>
-            <a class="btn btn-secondary btn-lg" type="button" href="https://www.linkedin.com/in/richard-lamb-137698386/"
-                target="_blank" data-aos="fade-up">Connect on LinkedIn</a>
-            <a class="btn btn-primary btn-lg" type="button" href="/contact" data-aos="fade-up" data-aos-delay="50">Send
-                me a message</a>
+    
+    <!-- Begin About -->
+    <div class="container py-5">
+        <h2 class="pb-2 border-bottom" id="about-me">About Me</h2>
+    
+        <!-- Highlights -->
+        <div class="container px-4 py-5">
+            <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+                <div class="col d-flex flex-column align-items-start gap-2">
+                    <h2 class="fw-bold text-body-emphasis">Hi, I'm Richard Lamb!</h2>
+                    <p class="text-body-secondary">A highly-involved, hard working and dependable student at the University
+                        of Wisconsin-Madison.</p>
+                    <p>
+                        <a href="/assets/pdf/resume-public.pdf" target="_blank" class="btn btn-secondary btn-lg">View
+                            r&#233;sum&#233;</a>
+                        <a href="/about" class="btn btn-primary btn-lg">Explore more</a>
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="row row-cols-1 row-cols-sm-2 g-4">
+                        <div class="col d-flex flex-column gap-2">
+                            <div
+                                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-danger text-light bg-gradient fs-4 rounded-3">
+                                <svg class="bi" width="1em" height="1em" aria-hidden="true">
+                                    <use href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#graduation-cap"
+                                        xlink:href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#graduation-cap"></use>
+                                </svg>
+                            </div>
+                            <h4 class="fw-semibold mb-0 text-body-emphasis">Education</h4>
+                            <p class="text-body-secondary">Computer Engineering, B.S.<br />UW-Madison 2027<br />Go Badgers!
+                            </p>
+                        </div>
+                        <div class="col d-flex flex-column gap-2">
+                            <div
+                                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-info text-light bg-gradient fs-4 rounded-3">
+                                <svg class="bi" width="1em" height="1em" aria-hidden="true">
+                                    <use href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#bolt"
+                                        xlink:href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#bolt"></use>
+                                </svg>
+                            </div>
+                            <h4 class="fw-semibold mb-0 text-body-emphasis">Involvement</h4>
+                            <p class="text-body-secondary">Assistant Treasurer, Kappa Eta Kappa, Professional Engineering
+                                Fraternity</p>
+                        </div>
+                        <div class="col d-flex flex-column gap-2">
+                            <div
+                                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-success text-light bg-gradient fs-4 rounded-3">
+                                <svg class="bi" width="1em" height="1em" aria-hidden="true">
+                                    <use href="/lib/fontawesome-free-7.1.0-web/sprites/regular.svg#user"
+                                        xlink:href="/lib/fontawesome-free-7.1.0-web/sprites/regular.svg#user"></use>
+                                </svg>
+                            </div>
+                            <h4 class="fw-semibold mb-0 text-body-emphasis">Leadership</h4>
+                            <p class="text-body-secondary">Eagle Scout, Scouting America</p>
+                        </div>
+                        <div class="col d-flex flex-column gap-2">
+                            <div
+                                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-warning text-light bg-gradient fs-4 rounded-3">
+                                <svg class="bi" width="1em" height="1em" aria-hidden="true">
+                                    <use href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#star"
+                                        xlink:href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#star"></use>
+                                </svg>
+                            </div>
+                            <h4 class="fw-semibold mb-0 text-body-emphasis">Experience</h4>
+                            <p class="text-body-secondary">Engineering Intern, Village of Germantown, WI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Skills -->
+        <h3 class="pb-2 border-bottom">Skills</h3>
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 justify-content-center g-4 py-5">
+    
+            <!-- List of Skills -->
+            {% include homepage-skill.html type="solid" icon="cube" name="3D Printing" level="Advanced" %}
+            {% include homepage-skill.html type="regular" icon="comment" name="Adaptability" level="" %}
+            {% include homepage-skill.html type="solid" icon="globe" name="ArcGIS" level="Intermediate" %}
+            {% include homepage-skill.html type="solid" icon="cubes" name="AutoCAD" level="Elementary" %}
+            {% include homepage-skill.html type="solid" icon="dollar-sign" name="Bash" level="Intermediate" %}
+            {% include homepage-skill.html type="solid" icon="c" name="C/C++" level="Intermediate" %}
+            {% include homepage-skill.html type="solid" icon="brain" name="Critical Thinking" level="" %}
+            {% include homepage-skill.html type="brands" icon="css3-alt" name="CSS" level="Advanced" %}
+            {% include homepage-skill.html type="solid" icon="file-excel" name="Excel" level="Advanced" %}
+            {% include homepage-skill.html type="brands" icon="git-alt" name="Git" level="Advanced" %}
+            {% include homepage-skill.html type="brands" icon="html5" name="HTML" level="Advanced" %}
+            {% include homepage-skill.html type="brands" icon="java" name="Java" level="Advanced" %}
+            {% include homepage-skill.html type="brands" icon="js" name="JavaScript" level="Advanced" %}
+            {% include homepage-skill.html type="regular" icon="user" name="Leadership" level="" %}
+            {% include homepage-skill.html type="brands" icon="linux" name="Linux" level="Advanced" %}
+            {% include homepage-skill.html type="solid" icon="calculator" name="MATLAB" level="Elementary" %}
+            {% include homepage-skill.html type="regular" icon="face-smile" name="Positive Attitude" level="" %}
+            {% include homepage-skill.html type="solid" icon="file-powerpoint" name="PowerPoint" level="Advanced" %}
+            {% include homepage-skill.html type="brands" icon="python" name="Python" level="Advanced" %}
+            {% include homepage-skill.html type="solid" icon="bolt" name="Soldering" level="Intermediate" %}
+            {% include homepage-skill.html type="solid" icon="microchip" name="System Verilog" level="Intermediate" %}
+            {% include homepage-skill.html type="solid" icon="people-group" name="Teamwork" level="" %}
+            {% include homepage-skill.html type="brands" icon="windows" name="Windows" level="Advanced" %}
+            {% include homepage-skill.html type="solid" icon="file-word" name="Word" level="Advanced" %}
+    
         </div>
     </div>
-    <!-- End Call to Action Jumbotron -->
-
+    <!-- End About -->
+    
+    <!-- Get in Touch Footer -->
+    <div class="p-5 mb-4 bg-body-tertiary">
+        <div class="container text-center py-5">
+            <h1 class="display-5 fw-bold">Contact Me</h1>
+            <p class="col-md-8 offset-md-2 fs-4">Don't be a stranger, reach out!</p>
+            <h2 class="pt-3">
+                <a href="https://www.linkedin.com/in/richard-lamb-137698386/" target="_blank" class="text-body"><i
+                        class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/RichardLamb1" target="_blank" class="text-body ms-3"><i
+                        class="bi bi-github"></i></a>
+                <a href="https://wisc.joinhandshake.com/profiles/richardlamb" target="_blank" class="text-body ms-3" style="vertical-align: text-top; filter: grayscale(1);"><svg
+                        class="bi" width="1em" height="1em" viewBox="0 0 170 170" fill="currentColor" aria-hidden="true">
+                        <use href="/assets/svg/handshake-app-icon.svg#handshake"
+                            xlink:href="/assets/svg/handshake-app-icon.svg#handshake"></use>
+                    </svg></a>
+                <a href="/contact" class="text-body ms-3"><i class="bi bi-envelope-at-fill"></i></a>
+            </h2>
+        </div>
+    </div>
+    
     {% include footer.html %}
-
-    <script src="/lib/aos/aos.js"></script>
-    <script src="/assets/js/fix-aos-buttons.js"></script>
-</body>
+    
+    <!--
+        <script src="/lib/aos/aos.js"></script>
+        <script src="/assets/js/fix-aos-buttons.js"></script>
+        -->
+    </body>
