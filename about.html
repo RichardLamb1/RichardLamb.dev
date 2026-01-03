@@ -80,40 +80,45 @@ _location: "Madison, WI, United States"
 
                         </div>
                     </div>
-
-                    <!-- Programming Languages -->
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <h4 class="card-title">Programming Languages</h4>
-                            <ul class="m-0">
-                                <li>Java</li>
-                                <li>C/C++</li>
-                                <li>Python</li>
-                                <li>Bash</li>
-                                <li>HTML/CSS/JS</li>
-                                <li>MATLAB</li>
-                                <li>Assembly</li>
-                            </ul>
-                        </div>
-                    </div>
                     
                     <!-- Skills -->
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h2 class="card-title">Skills</h2>
-                            <ul class="m-0">
-                                <li>AutoCAD</li>
-                                <li>ArcGIS</li>
-                                <li>Microsoft Office</li>
-                                <li>Linux</li>
-                                <li>Raspberry Pi</li>
-                                <li>Arduino</li>
-                                <li>Verilog/VHDL</li>
-                                <li>QuestaSim</li>
-                                <li>LTSpice</li>
-                                <li>Oscilloscope</li>
-                                <li>Soldering</li>
-                            </ul>
+                            <h2 class="card-title mb-4">Skills</h2>
+                            <div class="row row-cols-1 justify-content-center">
+
+                                <!-- List of Skills -->
+                                <!-- 
+                                This is very similar to the list on the homepage, 
+                                except that last="true" needs to be added to the last 
+                                include so that padding isn't provided under it.
+                                 -->
+                                {% include about-skill.html type="solid" icon="cube" name="3D Printing" level="Advanced" %}
+                                {% include about-skill.html type="regular" icon="comment" name="Adaptability" level="" %}
+                                {% include about-skill.html type="solid" icon="globe" name="ArcGIS" level="Intermediate" %}
+                                {% include about-skill.html type="solid" icon="cubes" name="AutoCAD" level="Elementary" %}
+                                {% include about-skill.html type="solid" icon="dollar-sign" name="Bash" level="Intermediate" %}
+                                {% include about-skill.html type="solid" icon="c" name="C/C++" level="Intermediate" %}
+                                {% include about-skill.html type="solid" icon="brain" name="Critical Thinking" level="" %}
+                                {% include about-skill.html type="brands" icon="css3-alt" name="CSS" level="Advanced" %}
+                                {% include about-skill.html type="solid" icon="file-excel" name="Excel" level="Advanced" %}
+                                {% include about-skill.html type="brands" icon="git-alt" name="Git" level="Advanced" %}
+                                {% include about-skill.html type="brands" icon="html5" name="HTML" level="Advanced" %}
+                                {% include about-skill.html type="brands" icon="java" name="Java" level="Advanced" %}
+                                {% include about-skill.html type="brands" icon="js" name="JavaScript" level="Advanced" %}
+                                {% include about-skill.html type="regular" icon="user" name="Leadership" level="" %}
+                                {% include about-skill.html type="brands" icon="linux" name="Linux" level="Advanced" %}
+                                {% include about-skill.html type="solid" icon="calculator" name="MATLAB" level="Elementary" %}
+                                {% include about-skill.html type="regular" icon="face-smile" name="Positive Attitude" level="" %}
+                                {% include about-skill.html type="solid" icon="file-powerpoint" name="PowerPoint" level="Advanced" %}
+                                {% include about-skill.html type="brands" icon="python" name="Python" level="Advanced" %}
+                                {% include about-skill.html type="solid" icon="bolt" name="Soldering" level="Intermediate" %}
+                                {% include about-skill.html type="solid" icon="microchip" name="SystemVerilog" level="Intermediate" %}
+                                {% include about-skill.html type="solid" icon="people-group" name="Teamwork" level="" %}
+                                {% include about-skill.html type="brands" icon="windows" name="Windows" level="Advanced" %}
+                                {% include about-skill.html type="solid" icon="file-word" name="Word" level="Advanced" last="true" %}
+
+                            </div>
                         </div>
                     </div>
 

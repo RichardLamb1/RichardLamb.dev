@@ -1,0 +1,13 @@
+{% if include.last %}
+<div class="col d-flex align-items-start">
+{% else %}
+<div class="col d-flex pb-3 align-items-start">
+{% endif %}
+    <svg class="bi text-body-secondary align-self-center flex-shrink-0 me-3" width="1.25em" height="1.25em" fill="currentColor"
+        aria-hidden="true">
+        <use href="/lib/fontawesome-free-7.1.0-web/sprites/{{ include.type }}.svg#{{ include.icon }}" xlink:href="/lib/fontawesome-free-7.1.0-web/sprites/{{ include.type }}.svg#{{ include.icon }}"></use>
+    </svg>
+    <div>
+        <p class="fw-semibold fs-5 text-body-emphasis" style="display: contents;">{{ include.name }}{% if include.level != "" %} &bull; <span class="fw-light fs-6">{{ include.level }}</span>{% endif %}</p>
+    </div>
+</div>
