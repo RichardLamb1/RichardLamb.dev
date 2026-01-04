@@ -4,7 +4,7 @@
 // Add a copy button to each code block
 document.querySelectorAll('pre > code').forEach(el => {
     el.parentNode.className = 'position-relative';
-    const anchor = document.createElement('a');
+    const anchor = document.createElement('span');
     anchor.onclick = () => copyCode(el);
     anchor.className = 'copy-code-btn';
     anchor.title = "Copy code";
@@ -36,7 +36,7 @@ function copyCode(el) {
  * @param {Element} el <code> element to copy the text out of
  */
 function copyCodeFeedback(el) {
-    var icon = el.parentElement.getElementsByTagName('a')[0].getElementsByTagName('i')[0];
+    var icon = el.parentElement.getElementsByTagName('span')[0].getElementsByTagName('i')[0];
     icon.setAttribute("class", "bi bi-check2");
     setTimeout(() => {
         icon.setAttribute("class", "bi bi-copy");

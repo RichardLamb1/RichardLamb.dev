@@ -6,24 +6,6 @@ layout: default
     {% include head.html %}
     <title>{{ page.title }} - {{ site.title }}</title>
     <style>
-        @media (min-width: 1400px) {
-            .container-blog {
-                width: 980px;
-            }
-        }
-
-        @media (1200px <=width < 1400px) {
-            .container-blog {
-                width: 840px;
-            }
-        }
-
-        @media (992px <=width < 1200px) {
-            .container-blog {
-                width: 770px;
-            }
-        }
-
         @media (min-width: 768px) {
             #share-links {
                 justify-content: flex-end !important;
@@ -60,6 +42,11 @@ layout: default
             /* Make the headings easier to find/read in the markdown content section */
             margin-top: 2rem;
         }
+
+        pre > code {
+            /* Allow the user to scroll the code past the "copy code" button. Good enough fix for the overlap */
+            padding-right: 60px;
+        }
     </style>
     <link rel="stylesheet" href="/assets/css/copy-code.css" />
 </head>
@@ -68,114 +55,171 @@ layout: default
     <script src="/lib/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
     {% include header.html %}
 
-    <!-- Narrow Width Container (relative to rest of site) -->
-    <main class="container container-blog my-md-4">
-        <div class="mb-5">
-        
-            <!-- Title and Summary -->
-            <h1 class="display-3">{{ page.title }}</h1>
-            {% if page.summary %}
-            <p class="small mb-2">{{ page.summary }}</p>
-            {% endif %}
-        
-            <!-- Author, Date, and Estimated Reading Time -->
-            <p class="small">
-                By
-                {% if page.author %}
-                <b>{{ page.author }}</b>
-                {% else %}
-                <b><a href="/about">Richard Lamb</a></b>
-                {% endif %}
-                &bull;
-                <span title="{{ page.date }}"><b>{{ page.date | date: "%A, %B %d, %Y"}}</b></span>
-                &bull;
-                <span>{% include read_time.html %}</span>
-            </p>
-        
-            <!-- Cover Image -->
-            {% if page.image %}
-            <img src="{{ page.image.src }}" alt="{{ page.image.alt }}" class="img-fluid" />
-            {% if page.image.caption %}
-            <figcaption class="figure-caption mb-2">{{ page.image.caption }}</figcaption>
-            {% endif %}
-            {% endif %}
-        
-            <!-- Colored Tags -->
-            {% for t1 in page.tags %}
-            {% assign tag-color = "RGBA(var(--bs-secondary-rgb))" %}
-            {% for t2 in site.data.tagdata %}
-            {% if t1 == t2.name %}
-            {% capture tag-color %}{{ t2.color }}{% endcapture %}
-            {% endif %}
-            {% endfor %}
-            <a href="/blog/tag/{{ t1 | slugify }}"><span class="badge rounded-pill" style="background: {{ tag-color }}">{{ t1 }}</span></a>
-            {% endfor %}
-        </div>
+    <div class="container my-md-4">
+        <div class="row">
 
-        <!-- Refactor the main content -->
-        {% assign _content = content %}
+            <!-- Empty Column to the Left -->
+            <!-- Might use in the future for like the social media buttons or something -->
+            <div class="col-lg-2 col-md-1"></div>
 
-        {% if _content contains '<table class="' %}
-        {% assign _content = _content
-        | replace: '<table class="', '<table class="table '
-        %}
-        {% endif %}
-        {% if _content contains '<table>' %}
-        {% assign _content = _content
-        | replace: '<table>', '<table class="table">'
-        %}
-        {% endif %}
+            <!-- Main Column -->
+            <main class="col-md-8">
+                <div class="mb-5">
 
-        <!-- Main Content -->
-        <div id="main-content" class="mb-5">{{ _content }}</div>
-        <script src="/assets/js/copy-code.js"></script>
+                    <!-- Title and Summary -->
+                    <h1 class="display-3">{{ page.title }}</h1>
+                    {% if page.summary %}
+                    <p class="small mb-2">{{ page.summary }}</p>
+                    {% endif %}
 
-        <!-- Share Links -->
-        <div class="container border-bottom mb-5 p-0">
-            <div class="d-flex row">
-                <div class="d-flex col-md-6">
-                    <p id="share-text-lg" class="m-0 py-2 fw-light">Enjoyed this post? Spread the word!</p>
-                </div>
-                <div id="share-links" class="d-flex col-md-6">
-                    <p class="m-0 py-2">
-                        <!-- <span id="share-text-sm" class="m-0 py-2 fw-light">Share:</span> -->
-                        <span class="ms-2"><a class="text-body" href="https://www.facebook.com/sharer/sharer.php?title={{ page.title }}&u={{ site.url }}{{ page.url }}" target="_blank" title="Share to Facebook"><i
-                                    class="bi bi-facebook"></i></a></span>
-                        <span class="ms-2"><a class="text-body" href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" target="_blank" title="Tweet"><i
-                                    class="bi bi-twitter-x"></i></a></span>
-                        <span class="ms-2"><a class="text-body" href="https://www.linkedin.com/feed/?shareActive=true&shareUrl={{ site.url }}{{ page.url }}" target="_blank" title="Post on LinkedIn"><i
-                                    class="bi bi-linkedin"></i></a></span>
-                        <span class="ms-2"><a class="text-body" href="https://bsky.app/intent/compose?text={{ page.title }}%20{{ site.url }}{{ page.url }}" target="_blank" title="Post on Bluesky"><i
-                                    class="bi bi-bluesky"></i></a></span>
-                        <span class="ms-2"><a class="text-body" href="https://www.reddit.com/submit?url={{ site.url }}{{ page.url }}&title={{ page.title }}" target="_blank" title="Post on Reddit"><i
-                                    class="bi bi-reddit"></i></a></span>
-                        <script src="/assets/js/copy-link.js"></script>
-                        <span class="ms-2"><a class="text-body" href="javascript:copyLink()" title="Copy link"><i
-                                    id="copy-link-icon" class="bi bi-link-45deg"></i></a></span>
+                    <!-- Author, Date, and Estimated Reading Time -->
+                    <p class="small">
+                        By
+                        {% if page.author %}
+                        <b>{{ page.author }}</b>
+                        {% else %}
+                        <b><a href="/about">Richard Lamb</a></b>
+                        {% endif %}
+                        &bull;
+                        <span title="{{ page.date }}"><b>{{ page.date | date: "%A, %B %d, %Y"}}</b></span>
+                        &bull;
+                        <span>{% include read_time.html %}</span>
                     </p>
+
+                    <!-- Cover Image -->
+                    {% if page.image %}
+                    <img src="{{ page.image.src }}" alt="{{ page.image.alt }}" class="img-fluid" />
+                    {% if page.image.caption %}
+                    <figcaption class="figure-caption mb-2">{{ page.image.caption }}</figcaption>
+                    {% endif %}
+                    {% endif %}
+
+                    <!-- Colored Tags -->
+                    {% for t1 in page.tags %}
+                    {% assign tag-color = "RGBA(var(--bs-secondary-rgb))" %}
+                    {% for t2 in site.data.tagdata %}
+                    {% if t1 == t2.name %}
+                    {% capture tag-color %}{{ t2.color }}{% endcapture %}
+                    {% endif %}
+                    {% endfor %}
+                    <a href="/blog/tag/{{ t1 | slugify }}"><span class="badge rounded-pill"
+                            style="background: {{ tag-color }}">{{ t1 }}</span></a>
+                    {% endfor %}
                 </div>
-            </div>
-        </div>
 
-        <!-- Comments Section -->
-        {% if page.comments %}
-        <div class="mb-5">
-            <h1 class="display-4">Comments</h1>
-            {% include giscus.html %}
-        </div>
-        {% endif %}
+                <!-- Refactor the main content -->
+                {% assign _content = content %}
+                {% include refactor_blog_content.html %}
 
-        <!-- More Posts Section -->
-        <div class="mb-5">
-            <h1 class="display-4">More Posts</h1>
-            <div class="row">
-                <!-- Randomly pick 3 posts to recommend -->
-                {% assign _posts = site.posts | where_exp: "_page", "_page.url != page.url" | sample: 3 %}
-                {% for _post in _posts %}
-                {% include more-posts.html %}
-                {% endfor %}
+                <!-- Main Content -->
+                <div id="main-content" class="mb-5 js-toc-content">{{ _content }}</div>
+                <script src="/assets/js/copy-code.js"></script>
+
+                <!-- Share Links -->
+                <div class="container border-bottom mb-5 p-0">
+                    <div class="d-flex row">
+                        <div class="d-flex col-md-6">
+                            <p id="share-text-lg" class="m-0 py-2 fw-light">Enjoyed this post? Spread the word!</p>
+                        </div>
+                        <div id="share-links" class="d-flex col-md-6">
+                            <p class="m-0 py-2">
+                                <!-- <span id="share-text-sm" class="m-0 py-2 fw-light">Share:</span> -->
+                                <span class="ms-2"><a class="text-body"
+                                        href="https://www.facebook.com/sharer/sharer.php?title={{ page.title }}&u={{ site.url }}{{ page.url }}"
+                                        target="_blank" title="Share to Facebook"><i
+                                            class="bi bi-facebook"></i></a></span>
+                                <span class="ms-2"><a class="text-body"
+                                        href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}"
+                                        target="_blank" title="Tweet"><i class="bi bi-twitter-x"></i></a></span>
+                                <span class="ms-2"><a class="text-body"
+                                        href="https://www.linkedin.com/feed/?shareActive=true&shareUrl={{ site.url }}{{ page.url }}"
+                                        target="_blank" title="Post on LinkedIn"><i
+                                            class="bi bi-linkedin"></i></a></span>
+                                <span class="ms-2"><a class="text-body"
+                                        href="https://bsky.app/intent/compose?text={{ page.title }}%20{{ site.url }}{{ page.url }}"
+                                        target="_blank" title="Post on Bluesky"><i class="bi bi-bluesky"></i></a></span>
+                                <span class="ms-2"><a class="text-body"
+                                        href="https://www.reddit.com/submit?url={{ site.url }}{{ page.url }}&title={{ page.title }}"
+                                        target="_blank" title="Post on Reddit"><i class="bi bi-reddit"></i></a></span>
+                                <script src="/assets/js/copy-link.js"></script>
+                                <span class="ms-2"><a class="text-body" href="javascript:copyLink()"
+                                        title="Copy link"><i id="copy-link-icon"
+                                            class="bi bi-link-45deg"></i></a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comments Section -->
+                {% if page.comments %}
+                <div class="mb-5">
+                    <h1 class="display-4">Comments</h1>
+                    {% include giscus.html %}
+                </div>
+                {% endif %}
+
+                <!-- More Posts Section -->
+                <div class="mb-5">
+                    <h1 class="display-4">More Posts</h1>
+                    <div class="row">
+                        <!-- Randomly pick 3 posts to recommend -->
+                        {% assign _posts = site.posts | where_exp: "_page", "_page.url != page.url" | sample: 3 %}
+                        {% for _post in _posts %}
+                        {% include more-posts.html img_height = "150px" %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </main>
+
+            <!-- Table of Contents Column to the Right -->
+            <div class="col-lg-2 col-md-3">
+                {% if page.toc %}
+                <div class="toc-outer">
+                    <h5>On this page:</h5>
+                    <div class="toc js-toc"></div>
+                </div>
+                {% endif %}
             </div>
+
         </div>
-    </main>
+    </div>
+
+    <!-- Footer -->
     {% include footer.html %}
+
+    <!-- Table of Contents Stuff -->
+    {% if page.toc %}
+    <script src="/lib/tocbot/4.36.4/tocbot.min.js"></script>
+    <script>
+        tocbot.init({
+            /* Where to render the table of contents. */
+            tocSelector: '.js-toc',
+            /* Where to grab the headings to build the table of contents. */
+            contentSelector: '.js-toc-content',
+            /* Which headings to grab inside of the contentSelector element. */
+            headingSelector: 'h1, h2, h3',
+            /* For headings inside relative or absolute positioned containers within content. */
+            hasInnerContainers: true,
+            /* Headings that match the ignoreSelector will be skipped. */
+            ignoreSelector: '.js-toc-ignore',
+        });
+    </script>
+    {% endif %}
+
+    <!-- Lightense (Image Zooming) -->
+    <script src="/lib/lightense/1.0.17/lightense.min.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            Lightense('img.lightense', {
+                time: 300,
+                padding: 40,
+                offset: 40,
+                keyboard: true,
+                cubicBezier: 'cubic-bezier(.2, 0, .1, 1)',
+                background: 'rgba(0, 0, 0, .6)',
+                zIndex: 999999
+            });
+        }, false);
+    </script>
+
 </body>

@@ -10,6 +10,9 @@
 // Proper blockquotes
 @import "blockquotes";
 
+// Table of contents
+@import "tocbot";
+
 // Blurred background header
 header {
     --bs-bg-opacity: 0.6;

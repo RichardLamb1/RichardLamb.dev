@@ -1,0 +1,10 @@
+{% if _content contains '<table class="' %}
+{% assign _content = _content
+| replace: '<table class="', '<table class="table '
+%}
+{% endif %}
+{% if _content contains '<table>' %}
+{% assign _content = _content
+| replace: '<table>', '<table class="table">'
+%}
+{% endif %}

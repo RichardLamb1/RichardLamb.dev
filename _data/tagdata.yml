@@ -24,3 +24,6 @@
 
 - name: "bootstrap"
   color: "var(--bs-purple)"
+
+- name: "ublock origin"
+  color: "#800000"
