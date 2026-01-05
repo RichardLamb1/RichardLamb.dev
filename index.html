@@ -75,10 +75,21 @@ image:
                 width: 100% !important;
             }
         }
+
+        .contact-link {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .contact-link:hover {
+            transform: translate(0, -0.125em);
+        }
+
+        .ease-over-in {
+            transition-timing-function: cubic-bezier(.58,.58,.27,1.55) !important;
+        }
     </style>
-    <!--
+    <!-- AOS Stuff -->
     <link rel="stylesheet" href="/lib/aos/aos.css" />
-    -->
     <title>{{ page.title }}</title>
 </head>
 
@@ -91,7 +102,8 @@ image:
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div id="background-picture-container">
-                    <img id="background-picture" src="{{ page.image.src }}" alt="{{ page.image.alt }}" class="d-block w-100" />
+                    <img id="background-picture" src="{{ page.image.src }}" alt="{{ page.image.alt }}"
+                        class="d-block w-100" />
                 </div>
                 <div class="container">
                     <div class="carousel-caption text-start">
@@ -109,6 +121,12 @@ image:
                                         University of Wisconsin
                                     </a></p>
                                 <p>
+                                    <noscript>
+                                        <a class="btn btn-secondary resizable-buttons" href="#about-me">
+                                            More about me
+                                        </a>
+                                        <a class="btn btn-primary resizable-buttons" href="/contact">Get in touch</a>
+                                    </noscript>
                                     <a class="btn btn-secondary resizable-buttons" href="#about-me" data-aos="fade-up">
                                         More about me
                                     </a>
@@ -127,44 +145,15 @@ image:
     <!-- Begin Recent Blog Posts -->
     <div class="container py-5">
         <h2 class="pb-2 border-bottom">Latest Posts</h2>
-    
+
         <!-- Each Post -->
+        <noscript><p style="color: red">JavaScript is required to render this page properly</p></noscript>
         <div class="row">
             {% for post in site.posts limit:4 %}
-            <div class="col-lg-3">
-                <div class="card mb-4" title="{{ post.title }}">
-                    <!-- Cover Image -->
-                    {% if post.image %}
-                    <img src="{{ post.image.src }}" alt="{{ post.image.alt }}" class="card-img-top" height="200px"
-                        style="object-fit: cover;" />
-                    {% else %}
-                    <!-- Show a placeholder if there is no cover image available -->
-                    <svg height="200px" class="card-img-top" role="img" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100%" height="100%" fill="#55595c"></rect>
-                    </svg>
-                    {% endif %}
-                    <div class="card-body">
-                        <!-- Title -->
-                        <h5 class="card-title text-nowrap" style="overflow: hidden;" title="{{ post.title }}"><a
-                                href="{{ post.url }}" class="stretched-link">{{ post.title }}</a></h5>
-                        <!-- Author, Date, and Estimated Reading Time -->
-                        <p class="card-text">By
-                            {% if post.author %}
-                            <b>{{ post.author }}</b>
-                            {% else %}
-                            <b>Richard Lamb</b>
-                            &bull;
-                            <span>{% include read_time.html %}</span>
-                            {% endif %}
-                            <br>
-                            <span title="{{ post.date }}">{{ post.date | date: "%A, %B %d, %Y"}}</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+            {% include homepage-post-aos.html %}
             {% endfor %}
         </div>
-    
+
         <!-- Link to Blog -->
         <a href="/blog" class="d-flex align-items-center icon-link icon-link-hover text-decoration-none">
             Read my blog
@@ -172,17 +161,18 @@ image:
         </a>
     </div>
     <!-- End Recent Blog Posts -->
-    
+
     <!-- Begin About -->
     <div class="container py-5">
         <h2 class="pb-2 border-bottom" id="about-me">About Me</h2>
-    
+
         <!-- Highlights -->
         <div class="container px-4 py-5">
             <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
-                <div class="col d-flex flex-column align-items-start gap-2">
+                <div class="col d-flex flex-column align-items-start gap-2 user-introduction">
                     <h2 class="fw-bold text-body-emphasis">Hi, I'm Richard Lamb!</h2>
-                    <p class="text-body-secondary">A highly-involved, hard working and dependable student at the University
+                    <p class="text-body-secondary">A highly-involved, hard working and dependable student at the
+                        University
                         of Wisconsin-Madison.</p>
                     <p>
                         <a href="/assets/pdf/resume-public.pdf" target="_blank" class="btn btn-secondary btn-lg">View
@@ -192,19 +182,24 @@ image:
                 </div>
                 <div class="col">
                     <div class="row row-cols-1 row-cols-sm-2 g-4">
-                        <div class="col d-flex flex-column gap-2">
+                        <noscript>
+                            <p style="color: red">JavaScript is required to render this page properly</p>
+                        </noscript>
+                        <div class="col d-flex flex-column gap-2 ease-over-in" data-aos="zoom-in" data-aos-duration="300" data-aos-anchor=".user-introduction">
                             <div
                                 class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-danger text-light bg-gradient fs-4 rounded-3">
                                 <svg class="bi" width="1em" height="1em" aria-hidden="true">
                                     <use href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#graduation-cap"
-                                        xlink:href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#graduation-cap"></use>
+                                        xlink:href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#graduation-cap">
+                                    </use>
                                 </svg>
                             </div>
                             <h4 class="fw-semibold mb-0 text-body-emphasis">Education</h4>
-                            <p class="text-body-secondary">Computer Engineering, B.S.<br />UW-Madison 2027<br />Go Badgers!
+                            <p class="text-body-secondary">Computer Engineering, B.S.<br />UW-Madison 2027<br />Go
+                                Badgers!
                             </p>
                         </div>
-                        <div class="col d-flex flex-column gap-2">
+                        <div class="col d-flex flex-column gap-2 ease-over-in" data-aos="zoom-in" data-aos-duration="300" data-aos-anchor=".user-introduction">
                             <div
                                 class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-info text-light bg-gradient fs-4 rounded-3">
                                 <svg class="bi" width="1em" height="1em" aria-hidden="true">
@@ -213,10 +208,11 @@ image:
                                 </svg>
                             </div>
                             <h4 class="fw-semibold mb-0 text-body-emphasis">Involvement</h4>
-                            <p class="text-body-secondary">Assistant Treasurer, Kappa Eta Kappa, Professional Engineering
+                            <p class="text-body-secondary">Assistant Treasurer, Kappa Eta Kappa, Professional
+                                Engineering
                                 Fraternity</p>
                         </div>
-                        <div class="col d-flex flex-column gap-2">
+                        <div class="col d-flex flex-column gap-2 ease-over-in" data-aos="zoom-in" data-aos-duration="300" data-aos-anchor=".user-introduction">
                             <div
                                 class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-success text-light bg-gradient fs-4 rounded-3">
                                 <svg class="bi" width="1em" height="1em" aria-hidden="true">
@@ -227,7 +223,7 @@ image:
                             <h4 class="fw-semibold mb-0 text-body-emphasis">Leadership</h4>
                             <p class="text-body-secondary">Eagle Scout, Scouting America</p>
                         </div>
-                        <div class="col d-flex flex-column gap-2">
+                        <div class="col d-flex flex-column gap-2 ease-over-in" data-aos="zoom-in" data-aos-duration="300" data-aos-anchor=".user-introduction">
                             <div
                                 class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-warning text-light bg-gradient fs-4 rounded-3">
                                 <svg class="bi" width="1em" height="1em" aria-hidden="true">
@@ -242,65 +238,77 @@ image:
                 </div>
             </div>
         </div>
-    
+
         <!-- Skills -->
-        <h3 class="pb-2 border-bottom">Skills</h3>
+        <h3 class="pb-2 border-bottom animate-skills-list">Skills</h3>
+        <noscript><p style="color: red">JavaScript is required to render this page properly</p></noscript>
         <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 justify-content-center g-4 py-5">
-    
+
             <!-- List of Skills -->
-            {% include homepage-skill.html type="solid" icon="cube" name="3D Printing" level="Advanced" %}
-            {% include homepage-skill.html type="regular" icon="comment" name="Adaptability" level="" %}
-            {% include homepage-skill.html type="solid" icon="globe" name="ArcGIS" level="Intermediate" %}
-            {% include homepage-skill.html type="solid" icon="cubes" name="AutoCAD" level="Elementary" %}
-            {% include homepage-skill.html type="solid" icon="dollar-sign" name="Bash" level="Intermediate" %}
-            {% include homepage-skill.html type="solid" icon="c" name="C/C++" level="Intermediate" %}
-            {% include homepage-skill.html type="solid" icon="brain" name="Critical Thinking" level="" %}
-            {% include homepage-skill.html type="brands" icon="css3-alt" name="CSS" level="Advanced" %}
-            {% include homepage-skill.html type="solid" icon="file-excel" name="Excel" level="Advanced" %}
-            {% include homepage-skill.html type="brands" icon="git-alt" name="Git" level="Advanced" %}
-            {% include homepage-skill.html type="brands" icon="html5" name="HTML" level="Advanced" %}
-            {% include homepage-skill.html type="brands" icon="java" name="Java" level="Advanced" %}
-            {% include homepage-skill.html type="brands" icon="js" name="JavaScript" level="Advanced" %}
-            {% include homepage-skill.html type="regular" icon="user" name="Leadership" level="" %}
-            {% include homepage-skill.html type="brands" icon="linux" name="Linux" level="Advanced" %}
-            {% include homepage-skill.html type="solid" icon="calculator" name="MATLAB" level="Elementary" %}
-            {% include homepage-skill.html type="regular" icon="face-smile" name="Positive Attitude" level="" %}
-            {% include homepage-skill.html type="solid" icon="file-powerpoint" name="PowerPoint" level="Advanced" %}
-            {% include homepage-skill.html type="brands" icon="python" name="Python" level="Advanced" %}
-            {% include homepage-skill.html type="solid" icon="bolt" name="Soldering" level="Intermediate" %}
-            {% include homepage-skill.html type="solid" icon="microchip" name="System Verilog" level="Intermediate" %}
-            {% include homepage-skill.html type="solid" icon="people-group" name="Teamwork" level="" %}
-            {% include homepage-skill.html type="brands" icon="windows" name="Windows" level="Advanced" %}
-            {% include homepage-skill.html type="solid" icon="file-word" name="Word" level="Advanced" %}
-    
+            {% include homepage-skill-aos.html type="solid" icon="cube" name="3D Printing" level="Advanced" %}
+            {% include homepage-skill-aos.html type="regular" icon="comment" name="Adaptability" level="" %}
+            {% include homepage-skill-aos.html type="solid" icon="globe" name="ArcGIS" level="Intermediate" %}
+            {% include homepage-skill-aos.html type="solid" icon="cubes" name="AutoCAD" level="Elementary" %}
+            {% include homepage-skill-aos.html type="solid" icon="dollar-sign" name="Bash" level="Intermediate" %}
+            {% include homepage-skill-aos.html type="solid" icon="c" name="C/C++" level="Intermediate" %}
+            {% include homepage-skill-aos.html type="solid" icon="brain" name="Critical Thinking" level="" %}
+            {% include homepage-skill-aos.html type="brands" icon="css3-alt" name="CSS" level="Advanced" %}
+            {% include homepage-skill-aos.html type="solid" icon="file-excel" name="Excel" level="Advanced" %}
+            {% include homepage-skill-aos.html type="brands" icon="git-alt" name="Git" level="Advanced" %}
+            {% include homepage-skill-aos.html type="brands" icon="html5" name="HTML" level="Advanced" %}
+            {% include homepage-skill-aos.html type="brands" icon="java" name="Java" level="Advanced" %}
+            {% include homepage-skill-aos.html type="brands" icon="js" name="JavaScript" level="Advanced" %}
+            {% include homepage-skill-aos.html type="regular" icon="user" name="Leadership" level="" %}
+            {% include homepage-skill-aos.html type="brands" icon="linux" name="Linux" level="Advanced" %}
+            {% include homepage-skill-aos.html type="solid" icon="calculator" name="MATLAB" level="Elementary" %}
+            {% include homepage-skill-aos.html type="regular" icon="face-smile" name="Positive Attitude" level="" %}
+            {% include homepage-skill-aos.html type="solid" icon="file-powerpoint" name="PowerPoint" level="Advanced" %}
+            {% include homepage-skill-aos.html type="brands" icon="python" name="Python" level="Advanced" %}
+            {% include homepage-skill-aos.html type="solid" icon="bolt" name="Soldering" level="Intermediate" %}
+            {% include homepage-skill-aos.html type="solid" icon="microchip" name="System Verilog" level="Intermediate" %}
+            {% include homepage-skill-aos.html type="solid" icon="people-group" name="Teamwork" level="" %}
+            {% include homepage-skill-aos.html type="brands" icon="windows" name="Windows" level="Advanced" %}
+            {% include homepage-skill-aos.html type="solid" icon="file-word" name="Word" level="Advanced" %}
+
         </div>
     </div>
     <!-- End About -->
-    
+
     <!-- Get in Touch Footer -->
     <div class="p-5 mb-4 bg-body-tertiary">
         <div class="container text-center py-5">
             <h1 class="display-5 fw-bold">Contact Me</h1>
             <p class="col-md-8 offset-md-2 fs-4">Don't be a stranger, reach out!</p>
             <h2 class="pt-3">
-                <a href="https://www.linkedin.com/in/richard-lamb-137698386/" target="_blank" class="text-body"><i
-                        class="bi bi-linkedin"></i></a>
-                <a href="https://github.com/RichardLamb1" target="_blank" class="text-body ms-3"><i
-                        class="bi bi-github"></i></a>
-                <a href="https://wisc.joinhandshake.com/profiles/richardlamb" target="_blank" class="text-body ms-3" style="vertical-align: text-top; filter: grayscale(1);"><svg
-                        class="bi" width="1em" height="1em" viewBox="0 0 170 170" fill="currentColor" aria-hidden="true">
+                <a href="https://www.linkedin.com/in/richard-lamb-137698386/" target="_blank" class="text-body mb-5"
+                    title="LinkedIn" data-aos="fade-up" data-aos-delay="0"><svg class="contact-link bi" width="1em" height="1em"
+                        fill="currentColor">
+                        <use href="/lib/bootstrap-icons-1.13.1/bootstrap-icons.svg#linkedin"></use>
+                    </svg></a>
+                <a href="https://github.com/RichardLamb1" target="_blank" class="text-body ms-3 mb-5" title="GitHub"
+                    data-aos="fade-up" data-aos-delay="50"><svg class="contact-link bi" width="1em" height="1em"
+                        fill="currentColor">
+                        <use href="/lib/bootstrap-icons-1.13.1/bootstrap-icons.svg#github"></use>
+                    </svg></a>
+                <a href="https://wisc.joinhandshake.com/profiles/richardlamb" target="_blank" class="text-body ms-3 mb-5"
+                    title="Handshake" style="filter: grayscale(1);" data-aos="fade-up" data-aos-delay="100"><svg
+                        class="contact-link bi" width="1em" height="1em" viewBox="0 0 170 170" fill="currentColor"
+                        aria-hidden="true">
                         <use href="/assets/svg/handshake-app-icon.svg#handshake"
                             xlink:href="/assets/svg/handshake-app-icon.svg#handshake"></use>
                     </svg></a>
-                <a href="/contact" class="text-body ms-3"><i class="bi bi-envelope-at-fill"></i></a>
+                <a href="/contact" class="text-body ms-3 mb-5" title="Message" data-aos="fade-up" data-aos-delay="150"><svg
+                        class="contact-link bi" width="1em" height="1em" fill="currentColor">
+                        <use href="/lib/bootstrap-icons-1.13.1/bootstrap-icons.svg#envelope-at-fill"></use>
+                    </svg></a>
             </h2>
         </div>
     </div>
-    
+
     {% include footer.html %}
-    
-    <!--
-        <script src="/lib/aos/aos.js"></script>
-        <script src="/assets/js/fix-aos-buttons.js"></script>
-        -->
-    </body>
+
+    <!-- AOS Stuff -->
+    <script src="/lib/aos/aos.js"></script>
+    <script src="/assets/js/fix-aos-buttons.js"></script>
+
+</body>
