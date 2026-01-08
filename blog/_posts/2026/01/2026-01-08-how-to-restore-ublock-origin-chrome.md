@@ -10,7 +10,7 @@ summary: "Using a simple command-line trick, you can restore uBlock Origin in Ch
 description: "Using a simple command-line trick, you can restore uBlock Origin in Chrome"
 
 # Date of the post
-date: 2026-01-03 00:00:00 -0600
+date: 2026-01-08 13:14:00 -0600
 
 # [Optional] Image and caption to display at the top of the post
 # The image is also displayed as a thumbnail on the homepage and /blog page
