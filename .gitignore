@@ -5,13 +5,26 @@ _site
 .jekyll-metadata
 vendor
 
-# OS Crap
+# OS crap
 .DS_Store
 .DS_Store?
+__MACOSX/
+.AppleDouble
+.LSOverride
 ._*
 .Spotlight-V100
 .Trashes
-ehthumbs.db
 Thumbs.db
-# WSL creates these files every time you copy something into it:
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+nohup.out
+
+# WSL crap
 *:Zone.Identifier*

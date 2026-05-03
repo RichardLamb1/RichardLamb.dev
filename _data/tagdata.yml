@@ -27,3 +27,17 @@
 
 - name: "ublock origin"
   color: "#800000"
+- name: "pi-hole"
+  color: "#990200"
+
+- name: "windows 10"
+  color: "#0072d1"
+
+- name: "windows 11"
+  color: "#319efd"
+
+- name: "tailscale"
+  color: "#2e2d2d"
+
+- name: "android"
+  color: "#a5c736"
