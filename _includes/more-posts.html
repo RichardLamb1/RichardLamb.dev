@@ -1,31 +1,23 @@
 <div class="col-lg-4">
-    <div class="card mb-4" title="{{ post.title }}">
+    <div class="card my-4 text-bg-dark blog-link" title="{{ _post.title }}">
         <!-- Cover Image -->
         {% if _post.image %}
-        <img src="{{ _post.image.src }}" alt="{{ _post.image.alt }}" class="card-img-top" height="{% if include.img_height %}include.img_height{% else %}200px{% endif %}"
-            style="object-fit: cover;" />
+        <img src="{{ _post.image.src }}" alt="{{ _post.image.alt }}" class="card-img" height="200px"
+            style="object-fit: cover; filter: brightness(40%)" />
         {% else %}
         <!-- Show a placeholder if there is no cover image available -->
-        <svg height="{% if include.img_height %}include.img_height{% else %}200px{% endif %}" class="card-img-top" role="img" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100%" height="100%" fill="#55595c"></rect>
+        <svg height="200px" class="card-img" role="img" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#222222"></rect>
         </svg>
         {% endif %}
-        <div class="card-body">
+        <div class="card-img-overlay">
+            <!-- Date -->
+            <span title="{{ _post.date }}" class="small fw-bold">{{ _post.date | date: "%B %_d, %Y"}}</span>
             <!-- Title -->
-            <h5 class="card-title text-nowrap" style="overflow: hidden;" title="{{ _post.title }}"><a
-                    href="{{ _post.url }}" class="stretched-link">{{ _post.title }}</a></h5>
-            <!-- Author, Date, and Estimated Reading Time -->
-            <p class="card-text">By
-                {% if _post.author %}
-                <b>{{ _post.author }}</b>
-                {% else %}
-                <b>Richard Lamb</b>
-                &bull;
-                <span>{% include read_time_more_posts.html %}</span>
-                {% endif %}
-                <br>
-                <span title="{{ _post.date }}">{{ _post.date | date: "%A, %B %d, %Y"}}</span>
-            </p>
+            <h5 class="card-title my-2 fw-semibold" style="overflow: hidden; color: #FFF;" title="{{ _post.title }}"><a
+                    href="{{ _post.url }}" class="stretched-link" style="color: #FFF;">{{ _post.title | truncate: 50 }}</a></h5>
+            <!-- Description -->
+            <span>{{ _post.description | truncate: 50 }}</span>
         </div>
     </div>
 </div>

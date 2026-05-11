@@ -6,32 +6,8 @@ layout: default
     {% include head.html %}
     <title>{{ page.title }} - {{ site.title }}</title>
     <style>
-        @media (min-width: 768px) {
-            #share-links {
-                justify-content: flex-end !important;
-            }
-
-            #share-text-sm {
-                visibility: hidden;
-            }
-        }
-
-        @media (width < 768px) {
-            #share-links {
-                justify-content: center !important;
-            }
-
-            #share-text-lg {
-                visibility: hidden;
-            }
-        }
-
-        #share-text-sm {
-            user-select: none;
-        }
-
-        #share-text-lg {
-            user-select: none;
+        #share-links {
+            justify-content: center !important;
         }
 
         table {
@@ -46,6 +22,24 @@ layout: default
         pre > code {
             /* Allow the user to scroll the code past the "copy code" button. Good enough fix for the overlap */
             padding-right: 60px;
+        }
+
+        .blog-link {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .blog-link a {
+            transition: all 0.2s;
+            text-decoration: underline;
+            text-decoration-color: transparent;
+        }
+
+        .blog-link:hover {
+            transform: translate(0, -0.25em);
+        }
+
+        .blog-link a:hover {
+            text-decoration-color: #FFF;
         }
     </style>
     <link rel="stylesheet" href="/assets/css/copy-code.css" />
@@ -116,12 +110,9 @@ layout: default
                 <script src="/assets/js/copy-code.js"></script>
 
                 <!-- Share Links -->
-                <div class="container border-bottom mb-5 p-0">
+                <div class="container border-top border-bottom mb-5 p-0">
                     <div class="d-flex row">
-                        <div class="d-flex col-md-6">
-                            <p id="share-text-lg" class="m-0 py-2 fw-light">Enjoyed this post? Spread the word!</p>
-                        </div>
-                        <div id="share-links" class="d-flex col-md-6">
+                        <div id="share-links" class="d-flex">
                             <p class="m-0 py-2">
                                 <!-- <span id="share-text-sm" class="m-0 py-2 fw-light">Share:</span> -->
                                 <span class="ms-2"><a class="text-body"
@@ -165,7 +156,7 @@ layout: default
                         <!-- Randomly pick 3 posts to recommend -->
                         {% assign _posts = site.posts | where_exp: "_page", "_page.url != page.url" | sample: 3 %}
                         {% for _post in _posts %}
-                        {% include more-posts.html img_height = "150px" %}
+                        {% include more-posts.html %}
                         {% endfor %}
                     </div>
                 </div>
