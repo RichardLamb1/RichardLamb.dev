@@ -19,7 +19,7 @@ image:
             }
         }
 
-        @media(width < 576px) {
+        @media(width < 790px) {
             #profile-picture {
                 /* Hide the profile picture on narrow screens (smartphones) */
                 visibility: hidden;
@@ -28,12 +28,18 @@ image:
 
         #background-picture-container {
             min-height: 250px;
-            max-height: 500px;
+            max-height: 50vh;
             overflow: hidden;
         }
 
         #background-picture {
-            filter: brightness(60%);
+            filter: brightness(50%) blur(2px);
+        }
+
+        @media(min-width: 576px) {
+            #background-picture {
+                translate: 0 -30%;
+            }
         }
 
         #profile-picture-container {
@@ -57,12 +63,19 @@ image:
             border-radius: .75rem;
         }
 
+        .hero-header {
+            left: auto;
+            right: auto;
+        }
+
         #hero-name {
             color: #FFF;
+            font-weight: 600;
         }
 
         #hero-description {
             color: #FFF;
+            font-weight: 400;
         }
 
         #hero-description>a {
@@ -106,7 +119,7 @@ image:
                         class="d-block w-100" />
                 </div>
                 <div class="container">
-                    <div class="carousel-caption text-start">
+                    <div class="carousel-caption text-start hero-header">
                         <div class="row">
                             <div class="col-auto align-content-center">
                                 <div id="profile-picture-container">
@@ -116,23 +129,31 @@ image:
                             </div>
                             <div class="col-auto align-content-center">
                                 <h1 id="hero-name">Richard Lamb</h1>
-                                <p id="hero-description">Computer Engineering and Computer Science student at the <a
+                                <p id="hero-description">Computer Science and Engineering student at the <a
                                         href="https://www.wisc.edu" target="_blank">
                                         University of Wisconsin
                                     </a></p>
-                                <p>
-                                    <noscript>
-                                        <a class="btn btn-secondary resizable-buttons" href="#about-me">
-                                            More about me
-                                        </a>
-                                        <a class="btn btn-primary resizable-buttons" href="/contact">Get in touch</a>
-                                    </noscript>
-                                    <a class="btn btn-secondary resizable-buttons" href="#about-me" data-aos="fade-up">
-                                        More about me
-                                    </a>
-                                    <a class="btn btn-primary resizable-buttons" href="/contact" data-aos="fade-up"
-                                        data-aos-delay="50">Get in touch</a>
-                                </p>
+                                    <h2>
+                                        <a href="https://www.linkedin.com/in/richard-lamb-137698386/" target="_blank" class="text-body mb-5"
+                                            title="LinkedIn"><svg class="contact-link bi" width="1em" height="1em"
+                                                fill="#FFF">
+                                                <use href="/lib/fontawesome-free-7.1.0-web/sprites/brands.svg#linkedin"></use>
+                                            </svg></a>
+                                        <a href="https://github.com/RichardLamb1" target="_blank" class="text-body ms-3 mb-5"
+                                            title="GitHub"><svg class="contact-link bi" width="1em" height="1em"
+                                                fill="#FFF">
+                                                <use href="/lib/fontawesome-free-7.1.0-web/sprites/brands.svg#github"></use>
+                                            </svg></a>
+                                        <a href="https://wisc.joinhandshake.com/profiles/richardlamb" target="_blank" class="text-body ms-3 mb-5"
+                                            title="Handshake"><svg class="contact-link bi" width="1em" height="1em"
+                                                fill="#FFF">
+                                                <use href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#square-h"></use>
+                                            </svg></a>
+                                        <a href="/contact" class="text-body ms-3 mb-5" title="Message"><svg
+                                                class="contact-link bi" width="1em" height="1em" fill="#FFF">
+                                                <use href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#envelope"></use>
+                                            </svg></a>
+                                    </h2>
                             </div>
                         </div>
                     </div>
@@ -147,10 +168,9 @@ image:
         <h2 class="pb-2 border-bottom">Latest Posts</h2>
 
         <!-- Each Post -->
-        <noscript><p style="color: red">JavaScript is required to render this page properly</p></noscript>
         <div class="row">
             {% for post in site.posts limit:4 %}
-            {% include homepage-post-aos.html %}
+            {% include homepage-post.html %}
             {% endfor %}
         </div>
 

@@ -20,7 +20,7 @@
 
 title: Richard Lamb
 description: >- # this means to ignore newlines until "baseurl:"
-  Computer Engineering and Computer Science student at the University of Wisconsin-Madison.
+  Computer Science and Engineering student at the University of Wisconsin
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://richardlamb.dev" # the base hostname & protocol for your site, e.g. http://example.com
 
