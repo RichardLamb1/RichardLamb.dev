@@ -119,6 +119,10 @@ image:
             text-decoration-color: #FFF;
         }
 
+        .text-shadow-1 {
+            text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25);
+        }
+
         .ease-over-in {
             transition-timing-function: cubic-bezier(.58,.58,.27,1.55) !important;
         }
@@ -183,6 +187,47 @@ image:
     </div>
     <!-- End Hero Image -->
 
+    <!-- Begin About Me -->
+    <div class="container py-5" id="hanging-icons">
+        <h2 class="pb-2 border-bottom">About Me</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="col d-flex align-items-start">
+                <div class="icon-square text-body-emphasis bg-body-tertiary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded-3"
+                    style="width: 3rem; height: 3rem;">
+                    <i class="bi bi-code-slash"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 text-body-emphasis">Building useful software</h3>
+                    <p>I’m a Computer Science and Engineering student at UW-Madison, and I like turning ideas into
+                        practical tools that solve real problems.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div class="icon-square text-body-emphasis bg-body-tertiary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded-3"
+                    style="width: 3rem; height: 3rem;">
+                    <i class="bi bi-layers"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 text-body-emphasis">Learning across layers</h3>
+                    <p>I enjoy web development, systems, and the full stack of details that make a project feel polished
+                        and reliable.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div class="icon-square text-body-emphasis bg-body-tertiary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded-3"
+                    style="width: 3rem; height: 3rem;">
+                    <i class="bi bi-journal-text"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 text-body-emphasis">Sharing what I learn</h3>
+                    <p>This site is where I post blog updates, highlight projects, and keep track of what I’m working on
+                        next.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About Me -->
+
     <!-- Begin Recent Blog Posts -->
     <div class="container py-5">
         <h2 class="pb-2 border-bottom">Latest Posts</h2>
@@ -201,9 +246,6 @@ image:
         </a>
     </div>
     <!-- End Recent Blog Posts -->
-
-    <!-- Begin About -->
-    
 
     {% include footer.html %}
 
