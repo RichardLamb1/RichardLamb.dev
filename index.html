@@ -9,96 +9,136 @@ image:
 <head>
     {% include head.html %}
     <style>
-        @media(min-width: 1200px) {
-            .resizable-buttons {
-                /* Automatically resize buttons for large screens */
-                --bs-btn-padding-y: 0.5rem;
-                --bs-btn-padding-x: 1rem;
-                --bs-btn-font-size: 1.25rem;
-                --bs-btn-border-radius: var(--bs-border-radius-lg);
-            }
-        }
-
-        @media(width < 790px) {
-            #profile-picture {
-                /* Hide the profile picture on narrow screens (smartphones) */
-                visibility: hidden;
-            }
-        }
-
-        #background-picture-container {
-            min-height: 200px;
-            max-height: 40vh;
-            overflow: hidden;
-        }
-
-        #background-picture {
-            filter: brightness(50%) blur(2px);
-        }
-
-        @media(min-width: 576px) {
-            #background-picture {
-                translate: 0 -30%;
-            }
-        }
-
-        #profile-picture-container {
-            width: 200px;
-            height: 200px;
-            border-radius: 100%;
-            overflow: hidden;
-        }
-
-        #profile-picture {
-            object-fit: cover;
+        .home-hero {
             position: relative;
-            transform: scale(0.7);
-            top: -75px;
-            left: -50px;
+            isolation: isolate;
+            background: #17232f;
+            color: #fff;
         }
 
-        .feature-icon-small {
+        .home-hero-background {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -2;
+        }
+
+        .home-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(8, 17, 29, .88), rgba(8, 17, 29, .6));
+            z-index: -1;
+        }
+
+        .home-hero-content {
+            min-height: 460px;
+            padding-block: 5rem;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .home-portrait {
+            width: 220px;
+            height: 280px;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, .8);
+            border-radius: 1rem;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, .25);
+            flex-shrink: 0;
+        }
+
+        .home-hero h1 {
+            color: #fff;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -.03em;
+        }
+
+        .home-hero-description {
+            max-width: 35rem;
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .home-social-links {
+            display: flex;
+            gap: .75rem;
+            margin-top: 1.5rem;
+        }
+
+        .home-social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 3rem;
             height: 3rem;
-            border-radius: .75rem;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .6);
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.4rem;
         }
 
-        .hero-header {
-            left: auto;
-            right: auto;
+        .home-social-links a:hover,
+        .home-social-links a:focus-visible {
+            color: #17232f;
+            background: #fff;
         }
 
-        #hero-name {
-            color: #FFF;
-            font-weight: 600;
+        .home-social-links a:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 4px;
         }
 
-        #hero-description {
-            color: #FFF;
-            font-weight: 400;
+        .home-placeholder {
+            border: 2px dashed var(--bs-border-color);
+            border-radius: 1rem;
+            background: var(--bs-tertiary-bg);
+            color: var(--bs-secondary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .75rem;
+            padding: 2rem;
+            text-align: center;
         }
 
-        #hero-description>a {
-            color: #FFF;
+        .home-photo-placeholder {
+            aspect-ratio: 4 / 3;
         }
 
-        #social-media-links>a {
-            color: #FFF !important;
+        .home-contact-placeholder {
+            min-height: 220px;
+        }
+
+        @media (max-width: 767px) {
+            .home-hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                padding-block: 3rem;
+            }
+
+            .home-portrait {
+                width: 180px;
+                height: 240px;
+            }
+
+            .home-social-links {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 768px) {
             .read-button {
-                /* Break the read buttons on phones and small tablets */
                 width: 100% !important;
             }
-        }
-
-        .contact-link {
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .contact-link:hover {
-            transform: translate(0, -0.125em);
         }
 
         .blog-link {
@@ -134,98 +174,53 @@ image:
     <script src="/lib/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
     {% include header.html %}
 
-    <!-- Begin Hero Image -->
-    <div id="mainCarousel" class="carousel slide">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div id="background-picture-container">
-                    <img id="background-picture" src="{{ page.image.src }}" alt="{{ page.image.alt }}"
-                        class="d-block w-100" />
-                </div>
-                <div class="container">
-                    <div class="carousel-caption text-start hero-header">
-                        <div class="row">
-                            <div class="col-auto align-content-center">
-                                <div id="profile-picture-container">
-                                    <img id="profile-picture" src="assets/img/khk2025.jpg"
-                                        alt="Richard Lamb's profile picture" />
-                                </div>
-                            </div>
-                            <div class="col-auto align-content-center">
-                                <h1 id="hero-name">Richard Lamb</h1>
-                                <p id="hero-description">Computer Science and Engineering student at the <a
-                                        href="https://www.wisc.edu" target="_blank">
-                                        University of Wisconsin-Madison
-                                    </a></p>
-                                    <h2 id="social-media-links">
-                                        <a href="https://www.linkedin.com/in/richard-lamb-137698386/" target="_blank" class="text-body mb-5"
-                                            title="LinkedIn"><svg class="contact-link bi" width="1em" height="1em"
-                                                fill="#FFF">
-                                                <use href="/lib/fontawesome-free-7.1.0-web/sprites/brands.svg#linkedin"></use>
-                                            </svg></a>
-                                        <a href="https://github.com/RichardLamb1" target="_blank" class="text-body ms-3 mb-5"
-                                            title="GitHub"><svg class="contact-link bi" width="1em" height="1em"
-                                                fill="#FFF">
-                                                <use href="/lib/fontawesome-free-7.1.0-web/sprites/brands.svg#github"></use>
-                                            </svg></a>
-                                        <a href="https://wisc.joinhandshake.com/profiles/richardlamb" target="_blank" class="text-body ms-3 mb-5"
-                                            title="Handshake"><svg class="contact-link bi" width="1em" height="1em"
-                                                fill="#FFF">
-                                                <use href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#square-h"></use>
-                                            </svg></a>
-                                        <a href="/contact" class="text-body ms-3 mb-5" title="Message"><svg
-                                                class="contact-link bi" width="1em" height="1em" fill="#FFF">
-                                                <use href="/lib/fontawesome-free-7.1.0-web/sprites/solid.svg#envelope"></use>
-                                            </svg></a>
-                                    </h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <main>
+    <!-- Begin Hero -->
+    <section class="home-hero" aria-labelledby="hero-name">
+        <img class="home-hero-background" src="{{ page.image.src }}" alt="" />
+        <div class="container home-hero-content">
+            <img class="home-portrait" src="/assets/img/khk2025.jpg" width="300" height="400"
+                alt="Richard Lamb" fetchpriority="high" />
+            <div>
+                <h1 id="hero-name">Richard Lamb</h1>
+                <p class="home-hero-description mb-0">Computer Science and Engineering student at the
+                    University of Wisconsin–Madison.</p>
+                <nav class="home-social-links" aria-label="Social and contact links">
+                    <a href="https://www.linkedin.com/in/richard-lamb-137698386/" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn">
+                        <i class="bi bi-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://github.com/RichardLamb1" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub (opens in a new tab)" title="GitHub">
+                        <i class="bi bi-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="/contact" aria-label="Contact me" title="Contact me">
+                        <i class="bi bi-envelope" aria-hidden="true"></i>
+                    </a>
+                </nav>
             </div>
         </div>
-    </div>
-    <!-- End Hero Image -->
+    </section>
+    <!-- End Hero -->
 
     <!-- Begin About Me -->
-    <div class="container py-5" id="hanging-icons">
-        <h2 class="pb-2 border-bottom">About Me</h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-            <div class="col d-flex align-items-start">
-                <div class="icon-square text-body-emphasis bg-body-tertiary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded-3"
-                    style="width: 3rem; height: 3rem;">
-                    <i class="bi bi-code-slash"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 text-body-emphasis">Building useful software</h3>
-                    <p>I’m a Computer Science and Engineering student at UW-Madison, and I like turning ideas into
-                        practical tools that solve real problems.</p>
+    <section class="container py-5" aria-labelledby="about-heading">
+        <div class="row align-items-center g-5">
+            <div class="col-md-5">
+                <!-- Replace this placeholder with a casual photo. -->
+                <div class="home-placeholder home-photo-placeholder">
+                    <i class="bi bi-camera fs-1" aria-hidden="true"></i>
+                    <span>Casual photo coming soon</span>
                 </div>
             </div>
-            <div class="col d-flex align-items-start">
-                <div class="icon-square text-body-emphasis bg-body-tertiary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded-3"
-                    style="width: 3rem; height: 3rem;">
-                    <i class="bi bi-layers"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 text-body-emphasis">Learning across layers</h3>
-                    <p>I enjoy web development, systems, and the full stack of details that make a project feel polished
-                        and reliable.</p>
-                </div>
-            </div>
-            <div class="col d-flex align-items-start">
-                <div class="icon-square text-body-emphasis bg-body-tertiary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded-3"
-                    style="width: 3rem; height: 3rem;">
-                    <i class="bi bi-journal-text"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 text-body-emphasis">Sharing what I learn</h3>
-                    <p>This site is where I post blog updates, highlight projects, and keep track of what I’m working on
-                        next.</p>
-                </div>
+            <div class="col-md-7">
+                <h2 id="about-heading">A little about me</h2>
+                <p class="lead">Hi, I’m Richard. I like turning ideas into useful software and learning how things work along the way.</p>
+                <p class="mb-0">I’m studying Computer Science and Engineering at UW–Madison, with an interest in web development
+                    and systems. This site is where I share projects, experiments, and what I’m learning.</p>
             </div>
         </div>
-    </div>
+    </section>
     <!-- End About Me -->
 
     <!-- Begin Recent Blog Posts -->
@@ -247,6 +242,19 @@ image:
     </div>
     <!-- End Recent Blog Posts -->
 
-    {% include footer.html %}
+    <!-- Begin Contact Placeholder -->
+    <section class="container py-5" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="pb-2 border-bottom">Get in touch</h2>
+        <p>Have a question or an idea to share? I’d love to hear from you.</p>
+        <!-- Replace this placeholder with the contact form. -->
+        <div class="home-placeholder home-contact-placeholder">
+            <i class="bi bi-envelope fs-1" aria-hidden="true"></i>
+            <span>Contact form coming soon</span>
+            <a href="/contact">Use my contact page in the meantime</a>
+        </div>
+    </section>
+    <!-- End Contact Placeholder -->
+    </main>
 
+    {% include footer.html %}
 </body>
