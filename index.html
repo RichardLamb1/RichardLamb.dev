@@ -82,17 +82,33 @@ image:
             border-radius: 50%;
             text-decoration: none;
             font-size: 1.4rem;
+            transition: color .2s ease, background-color .2s ease,
+                border-color .2s ease, transform .2s ease, box-shadow .2s ease;
         }
 
         .home-social-links a:hover,
         .home-social-links a:focus-visible {
             color: #17232f;
             background: #fff;
+            border-color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
         }
 
         .home-social-links a:focus-visible {
             outline: 3px solid #fff;
             outline-offset: 4px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .home-social-links a {
+                transition: none;
+            }
+
+            .home-social-links a:hover,
+            .home-social-links a:focus-visible {
+                transform: none;
+            }
         }
 
         .home-placeholder {
@@ -218,6 +234,10 @@ image:
                 <p class="lead">Hi, I’m Richard. I like turning ideas into useful software and learning how things work along the way.</p>
                 <p class="mb-0">I’m studying Computer Science and Engineering at UW–Madison, with an interest in web development
                     and systems. This site is where I share projects, experiments, and what I’m learning.</p>
+                <a href="/about" class="d-flex align-items-center icon-link icon-link-hover text-decoration-none mt-3">
+                    More about me
+                    <i class="d-flex align-items-center bi bi-chevron-right"></i>
+                </a>
             </div>
         </div>
     </section>
