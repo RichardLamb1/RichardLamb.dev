@@ -4,6 +4,7 @@ layout: default
 
 <head>
     {% include head.html %}
+    {% seo title=false %}
     {% if page.type == "month" %}
     <title>Posts From {{ page.date | date: '%B, %Y' }} - {{ site.title }}</title>
     {% else if page.type == "tag" %}

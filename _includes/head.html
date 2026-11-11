@@ -1,18 +1,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- Description, Title, Author -->
-{% if page.description %}
-<meta name="description" content="{{ page.description }}" />
-{% else %}
-<meta name="description" content="{{ site.description }}" />
-{% endif %}
-{% if page.author %}
-<meta name="author" content="{{ page.author }}" />
-{% else %}
-<meta name="author" content="Richard Lamb" />
-{% endif %}
-
 <!-- Icon -->
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/icon256x256.png" />
@@ -25,32 +13,12 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
 <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
 
-<!-- OpenGraph content https://ogp.me/ -->
-<meta property="og:site_name" content="{{ site.title }}" />
-<meta property="og:title" content="{{ page.title }}" />
-<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
-{% if page.image %}
-<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image.src }}" />
-<meta property="og:image:alt" content="{{ page.image.alt }}" />
-{% endif %}
-{% if page.description %}
-<meta property="og:description" content="{{ page.description }}" />
-{% else %}
-<meta property="og:description" content="{{ site.description }}" />
-{% endif %}
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary" />
-<meta property="twitter:title" content="{{ page.title }}" />
-<meta property="twitter:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
-{% if page.image %}
-<meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ page.image.src }}" />
-<meta property="twitter:image:alt" content="{{ page.image.alt }}" />
-{% endif %}
-{% if page.description %}
-<meta property="twitter:description" content="{{ page.description }}" />
-{% else %}
-<meta property="twitter:description" content="{{ site.description }}" />
+<!-- Legacy cover images use image.src; SEO Tag handles image.path. -->
+{% if page.image.src and page.image.path == nil %}
+<meta property="og:image" content="{{ page.image.src | absolute_url | escape }}" />
+<meta property="og:image:alt" content="{{ page.image.alt | escape }}" />
+<meta name="twitter:image" content="{{ page.image.src | absolute_url | escape }}" />
+<meta name="twitter:image:alt" content="{{ page.image.alt | escape }}" />
 {% endif %}
 
 <!-- Feed -->
