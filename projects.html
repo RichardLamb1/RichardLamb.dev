@@ -1,0 +1,57 @@
+---
+layout: custom
+title: Projects
+description: Projects I've helped bring to life, from a custom arcade machine to a chapter website redesign.
+permalink: /projects/
+---
+
+<main class="container my-5">
+    <div class="mb-5 text-center">
+        <h1 class="display-4 fw-bold">Projects</h1>
+        <p class="lead text-body-secondary">A few things I've helped bring to life.</p>
+    </div>
+
+    {% for project in site.data.projects %}
+    <article class="card mb-4 overflow-hidden" aria-labelledby="project-{{ forloop.index }}">
+        <div class="row g-0">
+            <div class="col-md-4">
+                {% if project.image.src and project.image.src != empty %}
+                <img class="project-photo" src="{{ project.image.src | relative_url }}"
+                    alt="{{ project.image.alt | escape }}" loading="lazy" width="800" height="600" />
+                {% else %}
+                <div class="project-photo project-photo-placeholder bg-body-tertiary text-body-secondary">
+                    <i class="bi bi-image fs-1" aria-hidden="true"></i>
+                    <span>Photo coming soon</span>
+                    <span class="small">{{ project.title | escape }}</span>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <div class="card-body p-4">
+                    <p class="small text-body-secondary mb-2">{{ project.date | escape }}</p>
+                    <h2 class="card-title h3" id="project-{{ forloop.index }}">{{ project.title | escape }}</h2>
+                    {% if project.description %}
+                    <p>{{ project.description | escape }}</p>
+                    {% endif %}
+                    {% if project.bullets.size > 0 %}
+                    <ul>
+                        {% for bullet in project.bullets %}
+                        <li class="mb-2">{{ bullet | escape }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% if project.links.size > 0 %}
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        {% for link in project.links %}
+                        <a class="d-flex align-items-center icon-link icon-link-hover text-decoration-none"
+                            href="{{ link.url | relative_url | escape }}">{{ link.text | escape }} <i
+                                class="d-flex align-items-center bi bi-chevron-right"></i></a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+</main>

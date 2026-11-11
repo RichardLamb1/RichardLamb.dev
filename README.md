@@ -40,6 +40,17 @@ Assets for blog content (images, etc.) are stored under `/assets/blog/*`. Again,
 
 Colored tags are supported. See `/_data/tagdata.yml`.
 
+## Updating Projects
+
+The `/projects/` page reads from `_data/projects.yml`. Add or edit entries there
+to change titles, dates, descriptions, bullet points, and links. Each optional
+link has a `text` label and a `url`, which can point to a local page or an external site.
+Remove `links` or use `links: []` for a project without links.
+
+To replace a photo placeholder, add an image to `assets/projects/` and set the
+entry's `image.src` to its path (for example, `/assets/projects/khkade.jpg`). Set
+`image.alt` to a description of the photo. An empty `image.src` displays the placeholder.
+
 ## Exposing a Development Webserver
 
 Use the following command to expose a devserver on localhost:4000 including all unpublished posts:

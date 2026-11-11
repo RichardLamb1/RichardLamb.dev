@@ -1,0 +1,36 @@
+# Add an image.src path when a project photo is ready; leave it empty for a placeholder.
+# Descriptions, bullets, and links are optional. Each link has its own editable text.
+- title: KHKade
+  date: Spring, 2026
+  image:
+    src: ""
+    alt: ""
+  description: >-
+    A Clash Royale-inspired 2D game in a '90s-style arcade cabinet, featuring
+    KHK members as characters and UW–Madison campus buildings as towers.
+    Our team earned 2nd place at the University of Wisconsin–Madison College
+    of Engineering's 2026 Engineering EXPO.
+  bullets:
+    - Worked alongside 10 other members to bring the arcade machine to life.
+    - Led Ubuntu Linux installation on the NVIDIA Jetson Orin Nano development board and set up a development-to-production pipeline between the game developers' computers and the arcade machine.
+    - Helped configure and troubleshoot hardware, including soldering connections for the cabinet's buttons and joysticks.
+  links:
+    - text: Learn More!
+      url: https://delta.khk.org/posts/2026-04-28-expo-team-2nd-place/
+
+- title: Kappa Eta Kappa Delta Website Redesign
+  date: Summer, 2026
+  image:
+    src: ""
+    alt: ""
+  description: >-
+    Helped give the KHK Delta Chapter's website a fresh start, working with
+    a team of 4–5 members to completely redesign and rewrite the site.
+  bullets:
+    - Added a more interactive members page to showcase the chapter.
+    - Improved the mobile experience to make the site easier to explore on phones and tablets.
+  links:
+    - text: Learn More
+      url: https://delta.khk.org/posts/2026-09-01-new-website-release/
+    - text: Visit Website!
+      url: https://delta.khk.org/

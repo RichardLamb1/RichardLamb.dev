@@ -136,6 +136,9 @@
                         <a class="nav-link {% if page.title == "Blog" or page.layout == "post" or page.layout == "archive" %}active{% endif %}" {% if page.title == "Blog" or page.layout == "post" or page.layout == "archive" %}aria-current="page"{% endif %} href="/blog">Blog</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {% if page.url == "/projects/" %}active{% endif %}" {% if page.url == "/projects/" %}aria-current="page"{% endif %} href="{{ '/projects/' | relative_url }}">Projects</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/assets/pdf/Richard Lamb - Resume - 20261110.pdf" target="_blank">Resume</a>
                     </li>
                     <li class="nav-item">
