@@ -63,6 +63,14 @@
     updateSkills();
 
     if (window.AOS) {
+        // Commit AOS's translated starting positions before it adds aos-animate.
+        // Otherwise Chrome can combine both changes and skip the hero's slide.
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            page.classList.add('a2-aos-enabled');
+            page.querySelectorAll('[data-aos]').forEach((element) => {
+                window.getComputedStyle(element).transform;
+            });
+        }
         window.AOS.init({
             duration: 700,
             easing: 'ease-out-cubic',

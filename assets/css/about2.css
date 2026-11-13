@@ -40,8 +40,8 @@
     overflow-x: clip;
 }
 
-/* Keep content visible if AOS cannot initialize. */
-.about2 [data-aos]:not(.aos-init) {
+/* Keep content visible until JavaScript explicitly enables animations. */
+.about2:not(.a2-aos-enabled) [data-aos] {
     opacity: 1;
     transform: none;
 }
