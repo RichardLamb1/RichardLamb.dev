@@ -6,6 +6,12 @@ layout: default
     {% include head.html %}
     {% seo title=false %}
     <title>{{ page.title }} - {{ site.title }}</title>
+    {% if page.aos %}
+    <link rel="stylesheet" href="/lib/aos/aos.css">
+    <link rel="stylesheet" href="/assets/css/scroll-animations.css">
+    <script src="/lib/aos/aos.js" defer></script>
+    <script src="/assets/js/scroll-animations.js" defer></script>
+    {% endif %}
 </head>
 
 <body>

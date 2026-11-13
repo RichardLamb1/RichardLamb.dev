@@ -3,15 +3,16 @@ layout: custom
 title: Projects
 description: Projects I've helped bring to life, from a custom arcade machine to a chapter website redesign.
 permalink: /projects/
+aos: true
 ---
 <main class="container my-5">
-    <div class="mb-5 text-center">
+    <div class="mb-5 text-center" data-aos="fade-right" data-aos-offset="0">
         <h1 class="display-4 fw-bold">Projects</h1>
         <p class="lead text-body-secondary">A few things I've helped bring to life.</p>
     </div>
 
     {% for project in site.data.projects %}
-    <article class="card mb-4 overflow-hidden" aria-labelledby="project-{{ forloop.index }}">
+    <article class="card mb-4 overflow-hidden" aria-labelledby="project-{{ forloop.index }}" data-aos="fade-up">
         <div class="row g-0">
             <div class="col-md-4">
                 {% if project.image.src and project.image.src != empty %}

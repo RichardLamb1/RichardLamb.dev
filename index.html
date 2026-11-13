@@ -9,7 +9,11 @@ image:
     {% include head.html %}
     <title>{{ page.title }}</title>
     {% seo title=false %}
+    <link rel="stylesheet" href="/lib/aos/aos.css">
+    <link rel="stylesheet" href="/assets/css/scroll-animations.css">
     <link rel="stylesheet" href="/assets/css/home.css">
+    <script src="/lib/aos/aos.js" defer></script>
+    <script src="/assets/js/scroll-animations.js" defer></script>
 </head>
 
 <body>
@@ -22,8 +26,8 @@ image:
         <img class="home-hero-background" src="{{ page.image.src }}" alt="" />
         <div class="container home-hero-content">
             <img class="home-portrait" src="/assets/img/khk2025.jpg" width="300" height="400"
-                alt="Richard Lamb" fetchpriority="high" />
-            <div>
+                alt="Richard Lamb" fetchpriority="high" data-aos="fade-right" data-aos-offset="0" />
+            <div data-aos="fade-right" data-aos-offset="0">
                 <h1 id="hero-name">Richard Lamb</h1>
                 <p class="home-hero-description mb-0">Computer Science and Engineering student at the
                     University of Wisconsin–Madison.</p>
@@ -46,7 +50,7 @@ image:
     <!-- End Hero -->
 
     <!-- Begin About Me -->
-    <section class="container py-5" aria-labelledby="about-heading">
+    <section class="container py-5" aria-labelledby="about-heading" data-aos="fade-up">
         <div class="row align-items-center g-5">
             <div class="col-md-5">
                 <!-- Replace this placeholder with a casual photo. -->
@@ -70,7 +74,7 @@ image:
     <!-- End About Me -->
 
     <!-- Begin Recent Blog Posts -->
-    <div class="container py-5">
+    <div class="container py-5" data-aos="fade-up">
         <h2 class="pb-2 border-bottom">Latest Posts</h2>
 
         <!-- Each Post -->
@@ -89,7 +93,7 @@ image:
     <!-- End Recent Blog Posts -->
 
     <!-- Begin Contact Placeholder -->
-    <section class="container py-5" aria-labelledby="contact-heading">
+    <section class="container py-5" aria-labelledby="contact-heading" data-aos="fade-up">
         <h2 id="contact-heading" class="pb-2 border-bottom">Get in touch</h2>
         <p>Have a question or an idea to share? I’d love to hear from you.</p>
         <!-- Replace this placeholder with the contact form. -->
