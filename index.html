@@ -5,9 +5,10 @@ image:
   src: /assets/blog/2025/12/hello-world/madisonwinight.jpg
   alt: "Skyline of Madison, Wisconsin at night"
 ---
-
 <head>
     {% include head.html %}
+    <title>{{ page.title }}</title>
+    {% seo title=false %}
     <style>
         .home-hero {
             position: relative;
@@ -183,7 +184,6 @@ image:
             transition-timing-function: cubic-bezier(.58,.58,.27,1.55) !important;
         }
     </style>
-    <title>{{ page.title }}</title>
 </head>
 
 <body>
