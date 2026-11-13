@@ -73,6 +73,40 @@ After Jekyll rebuilds, the page generates the updated cards and filter buttons
 automatically. Search uses the skill names; no HTML or JavaScript edits are needed.
 Preview `/about2.html` to check the results.
 
+## Updating Experience
+
+The “Experience in practice.” section on `/about2.html` reads from
+[`_data/experience.yml`](_data/experience.yml). Each entry describes a role:
+
+```yaml
+- category: "software"
+  organization: "Organization name"
+  role: "Job title"
+  dates: "May 2026 — present"
+  image: "/assets/img/work_exp/organization.png"
+  location: "Madison, Wisconsin"
+  summary: "A short introduction to the work."
+  highlights:
+    - title: "Application development."
+      description: >-
+        Describe the work and its results here. Longer descriptions can
+        span multiple indented lines, which YAML joins into one paragraph.
+```
+
+Copy an entry to add a role, edit its fields to update it, or remove the entire
+entry to delete it. Entries appear in file order, and the first starts expanded.
+Add or remove items under `highlights` to change the role's bullet points.
+Preserve the YAML indentation using spaces, and point `image` to an existing
+image file in the site.
+
+Use `software`, `field`, or `community` for `category` to match the existing
+Software & IT, Field engineering, or Community filters. Adding another category
+also requires adding its filter button in `about2.html`.
+
+After Jekyll rebuilds, preview `/about2.html` and check the role's content,
+accordion, and category filter. Existing categories require no HTML or
+JavaScript edits when adding or updating roles.
+
 ## Exposing a Development Webserver
 
 Use the following command to expose a devserver on localhost:4000 including all unpublished posts:

@@ -3,6 +3,22 @@
     scroll-margin-top: 6rem;
 }
 
+/* Keep accordion states neutral and borderless in both color modes. */
+.about2 .accordion {
+    --bs-accordion-border-width: 0;
+    --bs-accordion-border-radius: 0;
+    --bs-accordion-inner-border-radius: 0;
+    --bs-accordion-active-color: var(--bs-body-color);
+    --bs-accordion-active-bg: var(--bs-accordion-bg);
+    --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
+    --bs-accordion-btn-focus-box-shadow: none;
+}
+
+.about2 .accordion-button:focus-visible {
+    outline: 2px solid var(--bs-secondary-color);
+    outline-offset: -2px;
+}
+
 /* Override display utilities when a filter hides a result. */
 .about2 [hidden] {
     display: none !important;

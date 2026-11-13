@@ -82,7 +82,7 @@ permalink: /about2.html
                 </figure>
             </div>
         </section>
-        <nav class="nav nav-pills gap-2 border-top border-bottom py-3" aria-label="About page sections" data-aos="fade-up">
+        <nav class="nav nav-pills justify-content-center gap-2 border-top border-bottom py-3" aria-label="About page sections" data-aos="fade-up">
             <a class="nav-link" href="#experience">
                 01 Experience
             </a>
@@ -125,180 +125,34 @@ permalink: /about2.html
                 </button>
             </div>
             <div class="accordion" id="experience-accordion">
-                <article class="accordion-item" data-experience="software">
+                {% for entry in site.data.experience %}
+                <article class="accordion-item" data-experience="{{ entry.category | escape }}">
                     <h3 class="accordion-header">
-                        <button class="accordion-button gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#experience-1" aria-expanded="true" aria-controls="experience-1">
-                            <img class="bg-white border rounded p-1 object-fit-contain flex-shrink-0" src="/assets/img/work_exp/uw_irc.png" alt="" width="52" height="52" loading="lazy" />
+                        <button class="accordion-button gap-3{% unless forloop.first %} collapsed{% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#experience-{{ forloop.index }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="experience-{{ forloop.index }}">
+                            <img class="bg-white border rounded p-1 object-fit-contain flex-shrink-0" src="{{ entry.image | relative_url | escape }}" alt="" width="52" height="52" loading="lazy" />
                             <span>
-                                <span class="d-block fw-semibold">
-                                    Industrial Refrigeration Consortium
-                                </span>
-                                <span class="d-block small text-body-secondary mt-1">
-                                    Student Web Developer & IT Administrator
-                                </span>
-                                <span class="d-block small text-body-secondary mt-1">
-                                    May 2026 — present
-                                </span>
+                                <span class="d-block fw-semibold">{{ entry.organization | escape }}</span>
+                                <span class="d-block small text-body-secondary mt-1">{{ entry.role | escape }}</span>
+                                <span class="d-block small text-body-secondary mt-1">{{ entry.dates | escape }}</span>
                             </span>
                         </button>
                     </h3>
-                    <div id="experience-1" class="accordion-collapse collapse show">
+                    <div id="experience-{{ forloop.index }}" class="accordion-collapse collapse{% if forloop.first %} show{% endif %}">
                         <div class="accordion-body">
-                            <p class="small text-body-secondary">
-                                University of Wisconsin–Madison
-                            </p>
-                            <p class="lead">
-                                Building and maintaining the engineering tools industry partners rely on.
-                            </p>
+                            <p class="small text-body-secondary">{{ entry.location | escape }}</p>
+                            <p class="lead">{{ entry.summary | escape }}</p>
                             <ul>
+                                {% for highlight in entry.highlights %}
                                 <li>
-                                    <strong>
-                                        Application development.
-                                    </strong>
-                                    Develop and maintain web-based engineering applications on a Linux, Apache, MySQL, and PHP (LAMP) stack.
+                                    <strong>{{ highlight.title | escape }}</strong>
+                                    {{ highlight.description | escape }}
                                 </li>
-                                <li>
-                                    <strong>
-                                        Modernization & usability.
-                                    </strong>
-                                    Modernized the Charge Management Tool by removing redundant code and migrating to JSON storage while preserving compatibility with existing project files. Added equipment duplication to the Safety Relief Vent Tool to reduce repetitive data entry.
-                                </li>
-                                <li>
-                                    <strong>
-                                        Security & reliability.
-                                    </strong>
-                                    Remediated a vulnerability that could have enabled session theft. Restored critical website and database services from backups following an accidental deletion.
-                                </li>
-                                <li>
-                                    <strong>
-                                        Better development workflows.
-                                    </strong>
-                                    Introduced Git-based version control to improve change tracking and maintainability across multiple applications.
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
                 </article>
-                <article class="accordion-item" data-experience="field">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button gap-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#experience-2" aria-expanded="false" aria-controls="experience-2">
-                            <img class="bg-white border rounded p-1 object-fit-contain flex-shrink-0" src="/assets/img/work_exp/germantown.jpeg" alt="" width="52" height="52" loading="lazy" />
-                            <span>
-                                <span class="d-block fw-semibold">
-                                    Village of Germantown
-                                </span>
-                                <span class="d-block small text-body-secondary mt-1">
-                                    Engineering Intern
-                                </span>
-                                <span class="d-block small text-body-secondary mt-1">
-                                    Summers 2024 & 2025
-                                </span>
-                            </span>
-                        </button>
-                    </h3>
-                    <div id="experience-2" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p class="small text-body-secondary">
-                                Germantown, Wisconsin
-                            </p>
-                            <p class="lead">
-                                Taking engineering from the office into the field.
-                            </p>
-                            <ul>
-                                <li>
-                                    <strong>
-                                        Surveying & inspections.
-                                    </strong>
-                                    Operated GPS land surveying equipment to verify record drawings and performed routine erosion control inspections.
-                                </li>
-                                <li>
-                                    <strong>
-                                        Team & records.
-                                    </strong>
-                                    Trained new team members in erosion control methods and inspection. Organized and digitized historical engineering records to improve departmental efficiency.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-                <article class="accordion-item" data-experience="field">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button gap-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#experience-3" aria-expanded="false" aria-controls="experience-3">
-                            <img class="bg-white border rounded p-1 object-fit-contain flex-shrink-0" src="/assets/img/work_exp/mequon.png" alt="" width="52" height="52" loading="lazy" />
-                            <span>
-                                <span class="d-block fw-semibold">
-                                    City of Mequon
-                                </span>
-                                <span class="d-block small text-body-secondary mt-1">
-                                    Engineering Intern
-                                </span>
-                                <span class="d-block small text-body-secondary mt-1">
-                                    Summers 2022 & 2023
-                                </span>
-                            </span>
-                        </button>
-                    </h3>
-                    <div id="experience-3" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p class="small text-body-secondary">
-                                Mequon, Wisconsin
-                            </p>
-                            <p class="lead">
-                                Connecting field data with the infrastructure beneath our feet.
-                            </p>
-                            <ul>
-                                <li>
-                                    <strong>
-                                        Mapping & fieldwork.
-                                    </strong>
-                                    Used Esri ArcGIS to map and update underground utility data. Operated surveying GPS equipment and assisted with field data collection.
-                                </li>
-                                <li>
-                                    <strong>
-                                        Construction oversight.
-                                    </strong>
-                                    Conducted road construction inspections and routine erosion control checks.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-                <article class="accordion-item" data-experience="community">
-                    <h3 class="accordion-header">
-                        <button class="accordion-button gap-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#experience-4" aria-expanded="false" aria-controls="experience-4">
-                            <img class="bg-white border rounded p-1 object-fit-contain flex-shrink-0" src="/assets/img/scouts.png" alt="" width="52" height="52" loading="lazy" />
-                            <span>
-                                <span class="d-block fw-semibold">
-                                    Gardner Dam Scout Camp
-                                </span>
-                                <span class="d-block small text-body-secondary mt-1">
-                                    Youth Counselor
-                                </span>
-                                <span class="d-block small text-body-secondary mt-1">
-                                    Summer 2021
-                                </span>
-                            </span>
-                        </button>
-                    </h3>
-                    <div id="experience-4" class="accordion-collapse collapse">
-                        <div class="accordion-body">
-                            <p class="small text-body-secondary">
-                                White Lake, Wisconsin
-                            </p>
-                            <p class="lead">
-                                Helping young campers learn, explore, and solve problems.
-                            </p>
-                            <ul>
-                                <li>
-                                    <strong>
-                                        Teaching & service.
-                                    </strong>
-                                    Taught first aid, camping, and wilderness survival to elementary school-aged children. Worked with adults to resolve campsite cleanliness issues through problem solving and conflict resolution.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
+                {% endfor %}
             </div>
         </section>
         <section id="toolkit" class="a2-section py-5 border-bottom" aria-labelledby="toolkit-heading" data-aos="fade-up">

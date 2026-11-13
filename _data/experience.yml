@@ -1,0 +1,73 @@
+# Experience entries appear in this order; the first accordion starts expanded.
+- category: "software"
+  organization: "Industrial Refrigeration Consortium"
+  role: "Student Web Developer & IT Administrator"
+  dates: "May 2026 — present"
+  image: "/assets/img/work_exp/uw_irc.png"
+  location: "University of Wisconsin–Madison"
+  summary: "Building and maintaining the engineering tools industry partners rely on."
+  highlights:
+    - title: "Application development."
+      description: >-
+        Develop and maintain web-based engineering applications on a Linux, Apache, MySQL, and PHP
+        (LAMP) stack.
+    - title: "Modernization & usability."
+      description: >-
+        Modernized the Charge Management Tool by removing redundant code and migrating to JSON
+        storage while preserving compatibility with existing project files. Added equipment
+        duplication to the Safety Relief Vent Tool to reduce repetitive data entry.
+    - title: "Security & reliability."
+      description: >-
+        Remediated a vulnerability that could have enabled session theft. Restored critical
+        website and database services from backups following an accidental deletion.
+    - title: "Better development workflows."
+      description: >-
+        Introduced Git-based version control to improve change tracking and maintainability across
+        multiple applications.
+
+- category: "field"
+  organization: "Village of Germantown"
+  role: "Engineering Intern"
+  dates: "Summers 2024 & 2025"
+  image: "/assets/img/work_exp/germantown.jpeg"
+  location: "Germantown, Wisconsin"
+  summary: "Taking engineering from the office into the field."
+  highlights:
+    - title: "Surveying & inspections."
+      description: >-
+        Operated GPS land surveying equipment to verify record drawings and performed routine
+        erosion control inspections.
+    - title: "Team & records."
+      description: >-
+        Trained new team members in erosion control methods and inspection. Organized and
+        digitized historical engineering records to improve departmental efficiency.
+
+- category: "field"
+  organization: "City of Mequon"
+  role: "Engineering Intern"
+  dates: "Summers 2022 & 2023"
+  image: "/assets/img/work_exp/mequon.png"
+  location: "Mequon, Wisconsin"
+  summary: "Connecting field data with the infrastructure beneath our feet."
+  highlights:
+    - title: "Mapping & fieldwork."
+      description: >-
+        Used Esri ArcGIS to map and update underground utility data. Operated surveying GPS
+        equipment and assisted with field data collection.
+    - title: "Construction oversight."
+      description: >-
+        Conducted road construction inspections and routine erosion control checks.
+
+- category: "community"
+  organization: "Gardner Dam Scout Camp"
+  role: "Youth Counselor"
+  dates: "Summer 2021"
+  image: "/assets/img/scouts.png"
+  location: "White Lake, Wisconsin"
+  summary: "Helping young campers learn, explore, and solve problems."
+  highlights:
+    - title: "Teaching & service."
+      description: >-
+        Taught first aid, camping, and wilderness survival to elementary school-aged children.
+        Worked with adults to resolve campsite cleanliness issues through problem solving and
+        conflict resolution.
