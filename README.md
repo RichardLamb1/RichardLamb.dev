@@ -51,6 +51,28 @@ To replace a photo placeholder, add an image to `assets/projects/` and set the
 entry's `image.src` to its path (for example, `/assets/projects/khkade.jpg`). Set
 `image.alt` to a description of the photo. An empty `image.src` displays the placeholder.
 
+## Updating Skills
+
+The `/about2.html` page reads its skill cards and category filters from
+[`_data/skills.yml`](_data/skills.yml). Each entry has a `category` name and a
+`skills` list:
+
+```yaml
+- category: "Software"
+  skills:
+    - "Java"
+    - "Python"
+```
+
+Add, rename, or remove items in a `skills` list to update a category. To add a
+category, copy the structure above with a new name and its skills. Remove the
+entire entry to delete a category. Categories and skills appear in file order,
+so move entries to reorder them. Preserve the YAML indentation using spaces.
+
+After Jekyll rebuilds, the page generates the updated cards and filter buttons
+automatically. Search uses the skill names; no HTML or JavaScript edits are needed.
+Preview `/about2.html` to check the results.
+
 ## Exposing a Development Webserver
 
 Use the following command to expose a devserver on localhost:4000 including all unpublished posts:

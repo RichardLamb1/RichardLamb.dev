@@ -1,0 +1,39 @@
+/* Bootstrap supplies the page layout, components, colors, and responsive styles. */
+.about2 .a2-section {
+    scroll-margin-top: 6rem;
+}
+
+/* Override display utilities when a filter hides a result. */
+.about2 [hidden] {
+    display: none !important;
+}
+
+@media print {
+    .about2 .accordion-collapse.collapse {
+        display: block;
+    }
+
+    .about2 .a2-tool-controls,
+    .about2 [data-filter-group] {
+        display: none !important;
+    }
+}
+
+/* Horizontal entrance animations must not widen the viewport. */
+.about2-page {
+    overflow-x: clip;
+}
+
+/* Keep content visible if AOS cannot initialize. */
+.about2 [data-aos]:not(.aos-init) {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce), print {
+    .about2 [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
